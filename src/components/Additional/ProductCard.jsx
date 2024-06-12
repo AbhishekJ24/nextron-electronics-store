@@ -9,43 +9,40 @@ function ProductCard({ img_url, img_alt_text, product_name, product_price }) {
   const [addDisable, setAddDisabled] = useState(false);
 
   useEffect(() => {
-    if (it == 1) setRemoveDisabled(true);
-    else setRemoveDisabled(false);
-    if (it == 10) setAddDisabled(true);
-    else setAddDisabled(false);
+    setRemoveDisabled(it === 1);
+    setAddDisabled(it === 10);
   }, [it]);
+
+  const handleAddToCart = () => {
+    const sure = confirm(`Do you want to add ${product_name} to your cart?`);
+    if (sure) {
+      dispatch(it === 1 ? addItems() : addItemsByNumber(it));
+    }
+  };
 
   const dispatch = useDispatch();
   return (
-    <div className="bg-slate-100 rounded-2xl px-4 pt-4 pb-5 m-auto shadow-xl product-card">
+    <div className="bg-slate-200 rounded-2xl m-auto shadow-xl product-card text-xs">
       <div>
-        <div className="h-40 flex items-center justify-center">
+        <div className="h-48 m-5 flex items-center justify-center">
           <img
             src={img_url}
             alt={img_alt_text}
             className="h-full object-contain"
           />
         </div>
-        <div className="my-4 text-xl text-center">{product_name}</div>
-        <div className="font-semibold my-4 text-xl text-center">
+        <div className="m-2 text-base text-center">{product_name}</div>
+        <div className="font-semibold m-2 text-base text-center">
           ${product_price}
         </div>
       </div>
       <div>
-        <div className="flex justify-center gap-5">
+        <div className="flex justify-center gap-5 mb-4">
           <button className="border-none bg-slate-500 hover:bg-slate-400 flex justify-center items-center px-4 py-2 rounded-xl font-semibold text-slate-50 w-24">
             BUY NOW
           </button>
           <button
-            onClick={() => {
-              const sure = confirm(
-                "Do you want to add " + product_name + " to your cart?"
-              );
-              if (sure) {
-                if (it == 1) dispatch(addItems());
-                else dispatch(addItemsByNumber(it));
-              }
-            }}
+            onClick={handleAddToCart}
             className="border-none bg-slate-500 hover:bg-slate-400 flex justify-center items-center px-2 py-1 rounded-xl font-semibold text-slate-50 w-24"
           >
             ADD TO CART
@@ -54,9 +51,7 @@ function ProductCard({ img_url, img_alt_text, product_name, product_price }) {
         <div className="flex justify-center items-center gap-2">
           <button
             disabled={removeDisable}
-            onClick={() => {
-              setIt(it - 1);
-            }}
+            onClick={() => setIt(it - 1)}
             className="bg-gray-300 hover:bg-gray-400 text-black font-semibold p-2 rounded disabled:opacity-50 disabled:cursor-not-allowed"
           >
             -
@@ -64,9 +59,7 @@ function ProductCard({ img_url, img_alt_text, product_name, product_price }) {
           <span className="mx-2">{it}</span>
           <button
             disabled={addDisable}
-            onClick={() => {
-              setIt(it + 1);
-            }}
+            onClick={() => setIt(it + 1)}
             className="bg-gray-300 hover:bg-gray-400 text-black font-semibold p-2 rounded disabled:opacity-50 disabled:cursor-not-allowed"
           >
             +
