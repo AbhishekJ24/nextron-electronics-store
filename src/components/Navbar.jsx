@@ -6,7 +6,7 @@ function Navbar({ itemCount }) {
   return (
     <nav className="navbar flex justify-between items-center px-28 min-h-24 mb-12">
       <div>
-        <img className="h-24" src="src/assets/nextron-logo-text.png" alt="" />
+        <img className="h-24" src="public/nextron-logo-text.png" alt="" />
       </div>
       <ul className="flex gap-12 items-center">
         <li>Home</li>
@@ -16,7 +16,7 @@ function Navbar({ itemCount }) {
         <li className="flex gap-4 items-center">
           <UserCard
             user_name="AbhishekJ24"
-            avatar_card="src/assets/avatar2.png"
+            avatar_card="public/avatar2.png"
           />
           <CartIcon itemCount="5" />
         </li>
