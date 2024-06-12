@@ -4,8 +4,10 @@ import CartIcon from "./Additional/CartIcon";
 
 function Navbar({ itemCount }) {
   return (
-    <nav className="navbar flex justify-between items-center px-28 min-h-24">
-      <div className="font-bold text-5xl">Nextron Electronics</div>
+    <nav className="navbar flex justify-between items-center px-28 min-h-24 mb-12">
+      <div>
+        <img className="h-24" src="src/assets/nextron-logo-text.png" alt="" />
+      </div>
       <ul className="flex gap-12 items-center">
         <li>Home</li>
         <li>Trending</li>

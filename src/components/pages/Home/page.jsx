@@ -1,5 +1,5 @@
 import React from "react";
-import ProductCard from "../Additional/ProductCard";
+import ProductCard from "../../Additional/ProductCard";
 
 function Home() {
   return (

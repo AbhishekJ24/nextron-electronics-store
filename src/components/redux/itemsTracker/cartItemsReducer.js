@@ -13,7 +13,7 @@ export const cartItemsReducer = createSlice({
     },
     addItemsByNumber: (state, action) => {
       state.value += action.payload
-    }
+    },
   }
 })
 
