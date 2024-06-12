@@ -2,11 +2,11 @@ import React from "react";
 import UserCard from "./Additional/UserCard";
 import CartIcon from "./Additional/CartIcon";
 
-function Navbar({ itemCount }) {
+function Navbar() {
   return (
     <nav className="navbar flex justify-between items-center px-28 min-h-24 mb-12">
       <div>
-        <img className="h-24" src="public/nextron-logo-text.png" alt="" />
+        <img className="h-24" src="/public/nextron-logo-text.png" alt="" />
       </div>
       <ul className="flex gap-12 items-center">
         <li>Home</li>
@@ -14,11 +14,8 @@ function Navbar({ itemCount }) {
         <li>Products</li>
         <li>About Us</li>
         <li className="flex gap-4 items-center">
-          <UserCard
-            user_name="AbhishekJ24"
-            avatar_card="public/avatar2.png"
-          />
-          <CartIcon itemCount="5" />
+          <UserCard user_name="AbhishekJ24" avatar_card="/public/avatar2.png" />
+          <CartIcon />
         </li>
       </ul>
     </nav>
