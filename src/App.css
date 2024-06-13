@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Short+Stack&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Short+Stack&display=swap");
 
 * {
   font-family: "Outfit", sans-serif;
@@ -9,8 +9,8 @@
   height: 27rem;
   width: 20rem;
 }
-.logo{
-  font-family: "Alfa Slab One", serif;;
+.logo {
+  font-family: "Alfa Slab One", serif;
 }
 
 .navbar,
@@ -87,4 +87,13 @@
 .error {
   color: red;
   margin: 10px 0px;
+}
+
+.searchQueryButton {
+  background-color: #79b4f4;
+  color: #001b37;
+}
+
+.searchQueryButton:hover {
+  background-color: #bbdbfe;
 }

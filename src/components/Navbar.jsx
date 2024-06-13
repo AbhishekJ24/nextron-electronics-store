@@ -2,15 +2,19 @@ import React from "react";
 import { Link } from "react-router-dom";
 import UserCard from "./Additional/UserCard";
 import CartIcon from "./Additional/CartIcon";
+import NavSearchForm from "./NavSearch/NavSearchForm";
 
 function Navbar() {
   return (
     <nav className="navbar px-24 pt-5">
       <div className="flex justify-between items-center">
-        <a className="logo font-extrabold text-5xl text-white mb-2" href="/">
-          .nextron
-          {/* <img src="/nextron-logo-text.png" alt="" /> */}
-        </a>
+        <div className="flex items-center gap-28">
+          <a className="logo font-extrabold text-5xl text-white mb-2" href="/">
+            .nextron
+            {/* <img src="/nextron-logo-text.png" alt="" /> */}
+          </a>
+          <NavSearchForm />
+        </div>
         <li className="flex gap-8 items-center">
           <UserCard user_name="AbhishekJ24" avatar_card="/avatar2.png" />
           <CartIcon />

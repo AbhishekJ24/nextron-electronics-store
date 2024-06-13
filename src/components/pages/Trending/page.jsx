@@ -10,7 +10,7 @@ function page() {
         <h2 className="text-slate-900 font-semibold text-[60px] mt-14">
           Trending
         </h2>
-        <h2 className="text-slate-500 text-[20px] mb-10">Home / Products</h2>
+        <h2 className="text-slate-500 text-[20px] mb-10">Home / Trending</h2>
       </div>
       <div className="flex gap-5 m-auto w-3/4 flex-wrap my-10">
         <ProductCard

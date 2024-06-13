@@ -41,8 +41,10 @@ function page() {
             return (
               <ProductCard
                 key={item.id}
+                img_url="ps4.png"
+                img_alt_text="not-found"
                 product_name={item.title}
-                product_price={item.price}
+                product_price={item.price+100}
               />
             );
           })}
