@@ -1,11 +1,12 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 function CartIcon() {
-  const itemCount = useSelector(state => state.cartCount.value)
+  const itemCount = useSelector((state) => state.cartCount.value);
 
   return (
-    <div className="relative inline-block">
+    <Link to="/cart" className="relative inline-block hover:invert">
       <svg
         fill="#ffffff"
         version="1.1"
@@ -46,7 +47,7 @@ function CartIcon() {
           {itemCount}
         </span>
       )}
-    </div>
+    </Link>
   );
 }
 

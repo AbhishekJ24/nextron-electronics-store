@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ProductCard from "../../Additional/ProductCard";
+import CreditCard from "../../Additional/CreditCard";
 import Loader from "../../Additional/Loader";
 
 async function fetchProducts() {
@@ -23,10 +24,19 @@ function page() {
 
   return (
     <>
+      <CreditCard />
+      <div className="w-3/4 m-auto">
+        <h2 className="text-slate-900 font-semibold text-[60px] mt-14">
+          Products
+        </h2>
+        <h2 className="text-slate-500 text-[20px] mb-10">Home / Products</h2>
+      </div>
       {isLoading ? (
-        <Loader />
+        <div className="h-screen">
+          <Loader />
+        </div>
       ) : (
-        <div className="flex gap-5 m-auto w-3/4 flex-wrap">
+        <div className="flex gap-5 m-auto min-h-screen w-3/4 flex-wrap my-10">
           {data.map((item) => {
             return (
               <ProductCard

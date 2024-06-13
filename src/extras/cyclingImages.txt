@@ -1,0 +1,16 @@
+const ps5 = [
+  { src: "/ps5/1.jpg" },
+  { src: "/ps5/2.jpg" },
+  { src: "/ps5/3.jpg" },
+  { src: "/ps5/4.jpg" },
+  { src: "/ps5/5.jpg" },
+  { src: "/ps5/6.jpg" },
+  { src: "/ps5/7.jpg" },
+];
+
+const macbook = [
+  { src: "/macbook/1.jpg" },
+  { src: "/macbook/2.jpg" },
+  { src: "/macbook/3.jpg" },
+  { src: "/macbook/4.jpg" },
+];

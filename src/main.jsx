@@ -10,7 +10,8 @@ import ErrorPage from "./components/Additional/ErrorPage.jsx";
 import Home from "./components/pages/Home/page.jsx";
 import TrendingPage from "./components/pages/Trending/page.jsx";
 import ProductsPage from "./components/pages/Products/page.jsx";
-import AboutUsPage from "./components/pages/AboutUs/page.jsx";
+import ContactPage from "./components/pages/ContactUs/page.jsx";
+import CartPage from "./components/pages/Cart/page.jsx";
 
 const router = createBrowserRouter([
   {
@@ -20,10 +21,12 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+        errorElement: <ErrorPage />,
       },
       {
         path: "/trending",
         element: <TrendingPage />,
+        errorElement: <ErrorPage />,
       },
       {
         path: "/products",
@@ -31,8 +34,14 @@ const router = createBrowserRouter([
         errorElement: <ErrorPage />,
       },
       {
-        path: "/aboutus",
-        element: <AboutUsPage />,
+        path: "/contact-us",
+        element: <ContactPage />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "/cart",
+        element: <CartPage />,
+        errorElement: <ErrorPage />,
       },
     ],
   },
