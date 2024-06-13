@@ -31,7 +31,7 @@ function Navbar() {
           <Link to="/products">Products</Link>
         </li>
         <li className="hover:bg-slate-600 pb-5 px-4 py-4">
-          <Link to="/contact-us">Contact Us</Link>
+          <Link to="/contactus">Contact Us</Link>
         </li>
       </ul>
     </nav>

@@ -34,7 +34,7 @@ const router = createBrowserRouter([
         errorElement: <ErrorPage />,
       },
       {
-        path: "/contact-us",
+        path: "/contactus",
         element: <ContactPage />,
         errorElement: <ErrorPage />,
       },
