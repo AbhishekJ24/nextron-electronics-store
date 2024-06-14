@@ -93,3 +93,29 @@
 .searchQueryButton:hover {
   background-color: #bbdbfe;
 }
+
+.standard-responsive {
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .standard-responsive {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .standard-responsive {
+    padding-left: 6rem;
+    padding-right: 6rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .standard-responsive {
+    padding-left: 7rem;
+    padding-right: 7rem;
+  }
+}

@@ -5,7 +5,7 @@ import { FaYoutube } from "react-icons/fa6";
 
 function Footer() {
   return (
-    <div className="footer md:flex md:justify-between px-20 md:px-24 py-8 text-sm md:text-base lg:text-lg">
+    <div className="footer md:flex md:justify-between standard-responsive py-8 text-sm md:text-base lg:text-lg">
       <div className="md:text-left text-justify mb-14">
         <div className="text-white font-bold text-lg md:text-xl mb-1">
           Our store

@@ -4,20 +4,39 @@ import CartIcon from "./Additional/CartIcon";
 import CartIconSmall from "./Additional/CartIconSmall";
 import NavSearchForm from "./NavSearch/NavSearchForm";
 import NavSearchFormSmall from "./NavSearch/NavSearchFormSmall";
+import MyAlertButton from "./Additional/MyAlertButton";
 
 function Navbar() {
+
+  const [loginAlert, setLoginAlert] = useState(false)
+  const [loginButton, setLoginButton] = useState(false)
+
   const [showMenu, setShowMenu] = useState(false);
+
   const loc = useLocation()
+
   function toggleMenu() {
     setShowMenu(!showMenu);
   }
+
+  function loginSimulate() {
+    setLoginButton(true);
+    setLoginAlert(true);
+  }
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoginAlert(false)
+    }, 4000);
+  }, [loginButton])
+
   useEffect(() => {
     setShowMenu(false)
   }, [loc])
 
 
   return (
-    <nav className="navbar px-10 md:16 lg:px-24 xl:px-28 pt-5">
+    <nav className="navbar standard-responsive pt-5">
       <div className="navbar-large-devices hidden xl:block">
         <div className="flex justify-between items-center">
           <div className="flex items-center gap-28">
@@ -29,10 +48,17 @@ function Navbar() {
             </a>
             <NavSearchForm />
           </div>
-          <div className="flex gap-5 font-semibold">
+          <div className="flex items-center gap-5 font-semibold">
             <CartIcon />
-            <button className="transition-all hover:ease-in hover:bg-slate-400 rounded-md text-black bg-white px-3 py-2">Log In</button>
-            <button className="transition-all hover:ease-in hover:bg-slate-800 rounded-md text-white bg-black px-3 py-2">Sign Up</button>
+            {!loginButton && <>
+              <button onClick={loginSimulate} className="transition-all hover:ease-in hover:bg-slate-400 rounded-md text-black bg-white px-3 py-2">Log In</button>
+              <button onClick={loginSimulate} className="transition-all hover:ease-in hover:bg-slate-800 rounded-md text-white bg-black px-3 py-2">Sign Up</button>
+            </>
+            }
+            {loginButton && <div>
+              Logged in as <span className="font-bold text-cyan-900 searchQueryButton p-2 rounded-lg mx-2">Abhishek Joshi</span>
+            </div>
+            }
           </div>
         </div>
         <ul className="flex gap-12 items-center">
@@ -67,7 +93,7 @@ function Navbar() {
         </div>
         {showMenu && (
           <ul className="text-center">
-            <li className="pb-5 px-4 pt-4 hover:bg-slate-500">
+            <li className="pb-5 px-4 pt-4">
               <NavSearchFormSmall />
             </li>
             <li className="pb-5 px-4 pt-4 hover:bg-slate-500">
@@ -86,6 +112,7 @@ function Navbar() {
         )}
       </div>
 
+      {loginAlert && <MyAlertButton text="You have been logged in successfully"/>}
     </nav>
   );
 }

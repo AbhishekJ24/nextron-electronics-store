@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { addItems } from "../../redux/itemsTracker/cartItemsReducer";
 import { addItemsByNumber } from "../../redux/itemsTracker/cartItemsReducer";
-import Alert from "@mui/material/Alert";
+import MyAlertButton from "./MyAlertButton";
 
 function ProductCard({ img_url, img_alt_text, product_name, product_price }) {
   const [showAlert, setShowAlert] = useState(false);
@@ -19,8 +19,8 @@ function ProductCard({ img_url, img_alt_text, product_name, product_price }) {
     const sure = confirm(`Do you want to add ${product_name} to your cart?`);
     if (sure) {
       dispatch(it === 1 ? addItems() : addItemsByNumber(it));
+      setShowAlert(true);
     }
-    setShowAlert(true);
     setTimeout(() => {
       setShowAlert(false);
     }, 1500);
@@ -73,9 +73,7 @@ function ProductCard({ img_url, img_alt_text, product_name, product_price }) {
         </div>
       </div>
       {showAlert && (
-        <Alert className="fixed right-4 bottom-4" severity="success">
-          Items added to cart successfully
-        </Alert>
+        <MyAlertButton text="Items added to cart successfully" />
       )}
     </div>
   );
