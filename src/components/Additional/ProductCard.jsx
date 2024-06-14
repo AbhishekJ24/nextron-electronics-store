@@ -2,8 +2,10 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { addItems } from "../../redux/itemsTracker/cartItemsReducer";
 import { addItemsByNumber } from "../../redux/itemsTracker/cartItemsReducer";
+import Alert from "@mui/material/Alert";
 
 function ProductCard({ img_url, img_alt_text, product_name, product_price }) {
+  const [showAlert, setShowAlert] = useState(false);
   const [it, setIt] = useState(1);
   const [removeDisable, setRemoveDisabled] = useState(false);
   const [addDisable, setAddDisabled] = useState(false);
@@ -18,6 +20,10 @@ function ProductCard({ img_url, img_alt_text, product_name, product_price }) {
     if (sure) {
       dispatch(it === 1 ? addItems() : addItemsByNumber(it));
     }
+    setShowAlert(true);
+    setTimeout(() => {
+      setShowAlert(false);
+    }, 1500);
   };
 
   const dispatch = useDispatch();
@@ -66,6 +72,11 @@ function ProductCard({ img_url, img_alt_text, product_name, product_price }) {
           </button>
         </div>
       </div>
+      {showAlert && (
+        <Alert className="fixed right-4 bottom-4" severity="success">
+          Items added to cart successfully
+        </Alert>
+      )}
     </div>
   );
 }

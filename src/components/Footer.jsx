@@ -5,29 +5,34 @@ import { FaYoutube } from "react-icons/fa6";
 
 function Footer() {
   return (
-    <div className="footer px-6 py-10 md:px-24 md:py-14 flex flex-wrap justify-around">
-      <div className="w-full md:w-1/2 mb-8 md:mb-0">
-        <div className="logo font-semibold text-4xl md:text-5xl text-white mb-4">
-          .nextron
-          {/* <img src="/nextron-logo-text.png" alt="" /> */}
+    <div className="footer md:flex md:justify-between px-20 md:px-24 py-8 text-sm md:text-base lg:text-lg">
+      <div className="md:text-left text-justify mb-14">
+        <div className="text-white font-bold text-lg md:text-xl mb-1">
+          Our store
         </div>
-        <h2 className="text-sm md:text-base">
-          Nextron Electronics Store is an electronics marketplace based out of
-          NYC.
+        <h2 className="mb-5 md:mb-3 md:w-1/2">
+          Nextron Electronics Store, based in NYC, offers the latest gadgets and
+          devices, from smartphones and laptops to gaming gear and home
+          entertainment systems. We prioritize quality, competitive pricing, and
+          exceptional customer service. Explore the future of technology with us
+          at Nextron Electronics Store.
         </h2>
-        <div className="flex gap-5 items-center mt-3">
+
+        <div className="flex items-center justify-center md:justify-normal gap-4">
           <a target="_blank" href="https://www.facebook.com/">
             <FaFacebook
               className="hover:scale-105 hover:ease-out transition-all"
               size={25}
             />
           </a>
+
           <a target="_blank" href="https://www.instagram.com/">
             <FaInstagram
               className="hover:scale-105 hover:ease-out transition-all"
               size={28}
             />
           </a>
+
           <a target="_blank" href="https://www.youtube.com/">
             <FaYoutube
               className="hover:scale-105 hover:ease-out transition-all"
@@ -36,9 +41,10 @@ function Footer() {
           </a>
         </div>
       </div>
-      <div className="w-full md:w-1/2 flex flex-wrap justify-around md:gap-32 md:justify-end">
-        <ul className="w-1/2 md:w-auto mb-8 md:mb-0">
-          <li className="text-white text-lg md:text-xl mb-2">Products</li>
+
+      <div className="flex flex-wrap gap-8 w-3/4 text-sm md:text-base lg:text-lg">
+        <ul>
+          <li className="text-white mb-3">Products</li>
           <li>
             <a href="/">Televisions and Accessories</a>
           </li>
@@ -55,8 +61,9 @@ function Footer() {
             <a href="/">Cameras and Accessories</a>
           </li>
         </ul>
-        <ul className="w-1/2 md:w-auto">
-          <li className="text-white text-lg md:text-xl mb-2">Company</li>
+
+        <ul className="">
+          <li className="text-white mb-3">Company</li>
           <li>
             <a href="/">About Us</a>
           </li>
@@ -73,10 +80,9 @@ function Footer() {
             <a href="/">Privacy Policy</a>
           </li>
         </ul>
-        <ul className="w-1/2 md:w-auto mb-8 md:mb-0">
-          <li className="text-white text-lg md:text-xl mb-2">
-            Let Us Help You
-          </li>
+
+        <ul className="">
+          <li className="text-white mb-3">Let Us Help You</li>
           <li>
             <a href="/">Your Account</a>
           </li>
