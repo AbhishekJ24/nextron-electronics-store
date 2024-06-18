@@ -20,16 +20,16 @@ function AirPodsBanner() {
     }, [airpods.length]);
 
     return (
-        <div className="bg-slate-200 sm:relative h-[24rem] sm:h-[28rem] md:h-[30rem] lg:h-[35rem] xl:h-[40rem]">
+        <div className="bg-slate-200 sm:relative h-[26rem] sm:h-[28rem] md:h-[30rem] lg:h-[35rem] xl:h-[40rem]">
             <img
                 className="h-[16rem] py-4 m-auto sm:hidden drop-shadow-2xl"
                 src={airpods[airIndex].src}
                 alt="not-found"
             />
             <div className="pt-1 sm:hidden text-center">
-                <span className='block title-airpods text-4xl font-bold drop-shadow-2xl'>AirPods Pro</span>
-                <span className='block title-2-airpods font-semibold drop-shadow-2xl'>2nd Generation</span>
-                <button className='block m-auto mt-2 py-1 px-3 rounded-xl text-base bg-slate-900 hover:bg-slate-800 transition-all hover:ease-in text-slate-50'>Buy $249</button>
+                <span className='block title-airpods text-5xl font-bold drop-shadow-2xl'>AirPods Pro</span>
+                <span className='block title-2-airpods text-xl font-semibold drop-shadow-2xl'>2nd Generation</span>
+                <button className='block m-auto mt-2 py-2 px-4 rounded-xl text-base bg-slate-900 hover:bg-slate-800 transition-all hover:ease-in text-slate-50'>Buy $249</button>
             </div>
             <div className="hidden sm:block ml-36 pt-36">
                 <span className="title-airpods text-[2.5rem] sm:text-[3rem] md:text-[3.5rem] lg:text-[5rem] xl:text-[7rem] block font-bold drop-shadow-2xl">AirPods Pro</span>
