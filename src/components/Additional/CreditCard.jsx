@@ -3,7 +3,7 @@ import React from "react";
 function CreditCard() {
   return (
     <div className="bg-[#007bff]">
-      <section className="text-white flex flex-wrap justify-center text-center items-center gap-3 lg:gap-12 m-auto pb-2">
+      <section className="text-white flex flex-wrap justify-center text-center items-center gap-3 lg:gap-12 m-auto py-4">
         <img
           className="h-20 lg:h-24"
           src="https://pisces.bbystatic.com/image2/BestBuy_US/dam/GL-66611-cb-fs-211018-6dd3346e-0ef8-458c-b16d-5ff2264fbb11.png"
