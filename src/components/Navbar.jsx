@@ -108,6 +108,15 @@ function Navbar() {
             <li className="pb-5 px-4 py-4 hover:bg-slate-500">
               <Link to="/contactus">Contact Us</Link>
             </li>
+            {!loginButton && <div className="flex gap-4 justify-center pb-4">
+              <button onClick={loginSimulate} className="transition-all hover:ease-in hover:bg-slate-400 rounded-md text-black bg-white px-3 py-2">Log In</button>
+              <button onClick={loginSimulate} className="transition-all hover:ease-in hover:bg-slate-800 rounded-md text-white bg-black px-3 py-2">Sign Up</button>
+            </div>
+            }
+            {loginButton && <div>
+              Logged in as <span className="font-bold text-cyan-900 searchQueryButton p-2 rounded-lg mx-2">Abhishek Joshi</span>
+            </div>
+            }
           </ul>
         )}
       </div>
