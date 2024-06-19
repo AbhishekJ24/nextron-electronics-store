@@ -28,17 +28,17 @@ function ProductCard({ img_url, img_alt_text, product_name, product_price }) {
 
   const dispatch = useDispatch();
   return (
-    <div className="bg-slate-200 rounded-2xl m-auto shadow-xl product-card text-xs">
+    <div className="bg-slate-200 rounded-2xl m-auto mb-10 px-3 shadow-xl product-card text-xs flex flex-col justify-around">
       <div>
-        <div className="h-48 m-5 flex items-center justify-center">
+        <div className="h-48 flex items-center justify-center">
           <img
             src={img_url}
             alt={img_alt_text}
-            className="h-full object-contain mix-blend-multiply"
+            className="h-40 w-40 object-contain mix-blend-multiply"
           />
         </div>
         <div className="m-2 text-base text-center">{product_name}</div>
-        <div className="font-semibold m-2 text-base text-center">
+        <div className="font-semibold text-lg text-center">
           ${product_price}
         </div>
       </div>

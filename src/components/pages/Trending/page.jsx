@@ -12,7 +12,7 @@ function page() {
         <ProductCard
           img_url="/iphone15.webp"
           img_alt_text="not-found"
-          product_name="Apple iPhone 15 (128GB, Black)"
+          product_name="Apple - iPhone 15 Plus 128GB - Black (Verizon)"
           product_price="1299.99"
         />
         <ProductCard

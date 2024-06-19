@@ -71,7 +71,7 @@ function ProductsCycle2() {
           <ProductCycleCard
             key={product.id}
             product_img={product.category.image}
-            product_title={product.title + " " + product.description}
+            product_title={product.title + " " + product.description.split(" ")[2]}
             product_price={`$${product.price}`}
           />
       ))}
