@@ -1,0 +1,16 @@
+import React from 'react'
+
+function PageTitle({ text1, text2 }) {
+    return (
+        <div className="w-3/4 m-auto">
+            <h2 className="text-slate-900 font-semibold text-[40px] sm:text-[50px] lg:text-[60px] mt-14">
+                {text1}
+            </h2>
+            {text2 &&
+                <h2 className="text-slate-500 text-[15px] sm:text-[17.5px] lg:text-[20px] mb-10">{text2}</h2>
+            }
+        </div>
+    )
+}
+
+export default PageTitle

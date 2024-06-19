@@ -3,7 +3,7 @@ import ProductCycleCard from './ProductCycleCard';
 import { FaChevronLeft } from "react-icons/fa";
 import { FaChevronRight } from "react-icons/fa";
 
-function ProductsCycle() {
+function ProductsCycle2() {
   const [products, setProducts] = useState([]);
   const [offset, setOffset] = useState(0);
   const [productsPerPage, setProductsPerPage] = useState(5);
@@ -11,9 +11,10 @@ function ProductsCycle() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch('https://fakestoreapi.com/products');
+        const response = await fetch('https://api.escuelajs.co/api/v1/products');
         const data = await response.json();
         setProducts(data);
+        console.log(data)
       } catch (error) {
         console.error('Error fetching products:', error);
       }
@@ -65,18 +66,18 @@ function ProductsCycle() {
 
   return (
     <div className="flex gap-10 justify-center items-center py-20 min-h-[30rem]">
-      <button onClick={handlePrevClick} disabled={offset === 0}> <FaChevronLeft /> </button>
+      <button className='ml-2' onClick={handlePrevClick} disabled={offset === 0}> <FaChevronLeft /> </button>
       {products.slice(offset, offset + productsPerPage).map((product) => (
-        <ProductCycleCard
-          key={product.id}
-          product_img={product.image}
-          product_title={product.title}
-          product_price={`$${product.price}`}
-        />
+          <ProductCycleCard
+            key={product.id}
+            product_img={product.category.image}
+            product_title={product.title + " " + product.description}
+            product_price={`$${product.price}`}
+          />
       ))}
-      <button onClick={handleNextClick} disabled={offset >= products.length - productsPerPage}> <FaChevronRight /> </button>
+      <button className='mr-2' onClick={handleNextClick} disabled={offset >= products.length - productsPerPage}> <FaChevronRight /> </button>
     </div>
   );
 }
 
-export default ProductsCycle;
+export default ProductsCycle2;

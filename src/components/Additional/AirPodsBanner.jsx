@@ -14,7 +14,7 @@ function AirPodsBanner() {
     useEffect(() => {
         const interval = setInterval(() => {
             setAirIndex((prevIndex) => (prevIndex + 1) % airpods.length);
-        }, 2500);
+        }, 4000);
 
         return () => clearInterval(interval);
     }, [airpods.length]);
@@ -29,12 +29,12 @@ function AirPodsBanner() {
             <div className="pt-1 sm:hidden text-center">
                 <span className='block title-airpods text-5xl font-bold drop-shadow-2xl'>AirPods Pro</span>
                 <span className='block title-2-airpods text-xl font-semibold drop-shadow-2xl'>2nd Generation</span>
-                <button className='block m-auto mt-2 py-2 px-4 rounded-xl text-base bg-slate-900 hover:bg-slate-800 transition-all hover:ease-in text-slate-50'>Buy $249</button>
+                <button className='inter block m-auto mt-2 py-2 px-4 rounded-xl text-base bg-slate-800 hover:bg-slate-700 transition-all hover:ease-in text-slate-50'>Buy $249</button>
             </div>
             <div className="hidden sm:block ml-36 pt-36">
                 <span className="title-airpods text-[2.5rem] sm:text-[3rem] md:text-[3.5rem] lg:text-[5rem] xl:text-[7rem] block font-bold drop-shadow-2xl">AirPods Pro</span>
                 <span className="title-2-airpods text-[0.8rem] sm:text-[1rem] md:text-[1.25rem] lg:text-[1.5rem] xl:text-[2rem] block font-semibold mb-4 drop-shadow-2xl">2nd Generation</span>
-                <button className="block rounded-xl bg-slate-900 hover:bg-slate-800 transition-all hover:ease-in text-slate-50 px-5 py-3 text-xl font-bold drop-shadow-2xl">
+                <button className="inter block rounded-xl bg-slate-800 hover:bg-slate-700 transition-all hover:ease-in text-slate-50 px-4 py-2 text-lg font-bold drop-shadow-2xl">
                     Buy $249
                 </button>
             </div>

@@ -1,17 +1,13 @@
 import React from "react";
 import ProductCard from "../../Additional/ProductCard";
 import CreditCard from "../../Additional/CreditCard";
+import PageTitle from "../../Additional/PageTitle";
 
 function page() {
   return (
     <>
       <CreditCard />
-      <div className="w-3/4 m-auto">
-        <h2 className="text-slate-900 font-semibold text-[60px] mt-14">
-          Trending
-        </h2>
-        <h2 className="text-slate-500 text-[20px] mb-10">Home / Trending</h2>
-      </div>
+      <PageTitle text1="Trending" text2="Home / Trending"/>
       <div className="flex gap-5 m-auto w-3/4 flex-wrap my-10">
         <ProductCard
           img_url="/iphone15.webp"
