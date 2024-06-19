@@ -28,7 +28,7 @@ function ProductCard({ img_url, img_alt_text, product_name, product_price }) {
 
   const dispatch = useDispatch();
   return (
-    <div className="bg-slate-200 rounded-2xl m-auto mb-10 px-3 shadow-xl product-card text-xs flex flex-col justify-around">
+    <div className="bg-slate-200 rounded-2xl m-auto px-2 shadow-xl product-card text-xs flex flex-col justify-around">
       <div>
         <div className="h-48 flex items-center justify-center">
           <img

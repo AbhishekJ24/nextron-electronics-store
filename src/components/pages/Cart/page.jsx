@@ -1,4 +1,5 @@
 import React from "react";
+import ItemInCart from "../../Additional/ItemInCart";
 
 function page({ total_amt = 1239.99 }) {
   return (
@@ -7,6 +8,7 @@ function page({ total_amt = 1239.99 }) {
         <h2 className="text-[60px] font-semibold">Cart</h2>
         <div className="flex gap-10 justify-center items-center">
           <div className="bg-slate-100 shadow-xl w-2/3 p-5">
+          <ItemInCart />
           </div>
           <div className="bg-slate-100 w-1/3 m-auto shadow-xl py-10 px-5">
             <h2 className="mb-4 font-medium">Cart total</h2>
