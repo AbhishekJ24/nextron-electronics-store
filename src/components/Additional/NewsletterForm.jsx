@@ -32,7 +32,7 @@ function NewsletterForm() {
                             return (
                                 <>
                                     <input
-                                        className="px-3 py-1 mb-2 rounded-lg outline-none"
+                                        className="px-3 py-1 mb-2 rounded-lg outline-none text-black"
                                         type="text"
                                         id="email"
                                         placeholder="Email Address"

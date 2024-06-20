@@ -14,7 +14,6 @@ function ProductsCycle2() {
         const response = await fetch('https://api.escuelajs.co/api/v1/products');
         const data = await response.json();
         setProducts(data);
-        console.log(data)
       } catch (error) {
         console.error('Error fetching products:', error);
       }
