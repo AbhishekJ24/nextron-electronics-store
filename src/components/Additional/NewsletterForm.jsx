@@ -25,7 +25,7 @@ function NewsletterForm() {
         >
             <Form>
                 <div className="text-slate-200 font-medium text-xl mb-2">Subscribe to our newsletter</div>
-                <div className="">
+                <div className="text-sm">
                     <Field name="email">
                         {(props) => {
                             const { field, form, meta } = props;
@@ -43,8 +43,8 @@ function NewsletterForm() {
                         }}
                     </Field>
                 </div>
-                <div className="">
-                    <button className="searchQueryButton transition-all hover:ease-in rounded-md px-4 py-[0.125rem]" type="submit">
+                <div className="text-base">
+                    <button className="searchQueryButton transition-all hover:ease-in rounded-md px-4 py-[0.1rem]" type="submit">
                         Subscribe
                     </button>
                 </div>
