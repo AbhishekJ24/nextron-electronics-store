@@ -34,7 +34,7 @@ function ProductCard({ img_url, img_alt_text, product_name, product_price }) {
           <img
             src={img_url}
             alt={img_alt_text}
-            className="h-40 w-40 object-contain mix-blend-multiply"
+            className="h-40 w-40 object-contain mix-blend-multiply hover:ease-in hover:scale-105 transition-all"
           />
         </div>
         <div className="m-2 text-base text-center">{product_name}</div>

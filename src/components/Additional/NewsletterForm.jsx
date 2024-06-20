@@ -24,7 +24,7 @@ function NewsletterForm() {
             onSubmit={onSubmit}
         >
             <Form>
-                <div className="text-slate-200 font-medium text-xl mb-2">Subscribe to our newsletter</div>
+                <div className="text-slate-200 font-medium text-xl mb-3 sm:mb-2">Subscribe to our newsletter</div>
                 <div className="text-sm">
                     <Field name="email">
                         {(props) => {
@@ -32,7 +32,7 @@ function NewsletterForm() {
                             return (
                                 <>
                                     <input
-                                        className="px-3 py-1 mb-2 rounded-lg outline-none text-black"
+                                        className="px-3 py-1 mb-3 sm:mb-2 rounded-lg outline-none text-black"
                                         type="text"
                                         id="email"
                                         placeholder="Email Address"

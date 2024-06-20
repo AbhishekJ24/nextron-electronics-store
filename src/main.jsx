@@ -43,6 +43,11 @@ const router = createBrowserRouter([
         element: <CartPage />,
         errorElement: <ErrorPage />,
       },
+      {
+        path: "/account",
+        element: <ErrorPage />,
+        errorElement: <ErrorPage />,
+      },
     ],
   },
 ]);

@@ -32,7 +32,7 @@ function ContactForm() {
       >
         <Form>
           <div className="form-group">
-            <Field name="name">
+            <Field name="name" className="">
               {(props) => {
                 const { field, form, meta } = props;
                 return (

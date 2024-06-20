@@ -38,7 +38,7 @@ function page() {
               <ProductCard
                 key={item.id}
                 img_url={item.image}
-                img_alt_text="not-found"
+                img_alt_text={item.title}
                 product_name={item.title}
                 product_price={item.price+100}
               />

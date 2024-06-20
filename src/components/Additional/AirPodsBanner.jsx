@@ -22,7 +22,7 @@ function AirPodsBanner() {
     return (
         <div className="bg-slate-200 sm:relative h-[26rem] sm:h-[28rem] md:h-[30rem] lg:h-[35rem] xl:h-[40rem]">
             <img
-                className="h-[16rem] py-4 m-auto sm:hidden drop-shadow-2xl"
+                className="h-[16rem] py-4 m-auto sm:hidden drop-shadow-2xl hover:scale-105 transition-all hover:ease-out hover:opacity-75"
                 src={airpods[airIndex].src}
                 alt="not-found"
             />

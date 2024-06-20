@@ -27,14 +27,14 @@ function NavSearchForm() {
         validationSchema={validationSchema}
         onSubmit={onSubmit}
       >
-        <Form className="flex flex-wrap justify-center gap-2">
+        <Form className="py-2">
           <Field name="search-query">
             {(props) => {
               const { field, form, meta } = props;
               return (
                 <>
                   <input
-                    className="outline-none focus:outline-none px-5 py-2 text-sm rounded-xl text-black"
+                    className="outline-none focus:outline-none px-5 mr-2 w-3/4 py-2 text-sm rounded-xl text-black"
                     type="text"
                     id="search-query"
                     placeholder="What can we help you find today?"
@@ -48,7 +48,7 @@ function NavSearchForm() {
             }}
           </Field>
           <button
-            className="searchQueryButton px-3 py-2 text-sm hover:ease-out transition-all rounded-xl"
+            className="searchQueryButton px-1 py-2 w-1/5 text-sm hover:ease-out transition-all rounded-lg"
             type="submit"
           >
             Search
