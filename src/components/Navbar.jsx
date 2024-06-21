@@ -48,7 +48,7 @@ function Navbar() {
 
 
   return (
-    <nav className="navbar standard-responsive pt-5 pb-3 lg:pb-0">
+    <nav className="navbar standard-responsive pt-5 pb-3 lg:pb-0 sticky top-0 z-50 w-full">
       <div className="navbar-large-devices hidden xl:block">
         <div className="flex justify-between items-center">
           <div className="flex items-center gap-28">
@@ -96,11 +96,11 @@ function Navbar() {
             <img className="h-20 p-2" src="/nextron-logo.png" alt="" />
           </a>
           <div className="flex gap-2 items-center">
-            <button onClick={toggleMenu} className="focus:outline-none">
-              <img className="h-12 w-12 transition-all hover:ease-in hover:scale-105 invert" src={menuIcon} alt="Menu" />
-            </button>
             <button onClick={handleSearchMobile}>
               <img className="h-8 w-8 ransition-all hover:ease-in hover:scale-105 invert" src="/search.svg" alt="Menu" />
+            </button>
+            <button onClick={toggleMenu} className="focus:outline-none">
+              <img className="h-12 w-12 transition-all hover:ease-in hover:scale-105 invert" src={menuIcon} alt="Menu" />
             </button>
           </div>
         </div>
