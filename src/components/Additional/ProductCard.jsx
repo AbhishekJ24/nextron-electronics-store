@@ -2,7 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { addItems } from "../../redux/itemsTracker/cartItemsReducer";
 import { addItemsByNumber } from "../../redux/itemsTracker/cartItemsReducer";
+import { addProduct } from "../../redux/itemsTracker/productsSlice";
 import MyAlertButton from "./MyAlertButton";
+import { v4 as uuidv4 } from 'uuid';
 
 function ProductCard({ img_url, img_alt_text, product_name, product_price }) {
   const [showAlert, setShowAlert] = useState(false);
@@ -19,6 +21,14 @@ function ProductCard({ img_url, img_alt_text, product_name, product_price }) {
     const sure = confirm(`Do you want to add ${product_name} to your cart?`);
     if (sure) {
       dispatch(it === 1 ? addItems() : addItemsByNumber(it));
+      const newProduct = {
+        id: uuidv4(),
+        name: product_name,
+        price: product_price,
+        quantity: it,
+        img_url: img_url,
+      };
+      dispatch(addProduct(newProduct));
       setShowAlert(true);
     }
     setTimeout(() => {

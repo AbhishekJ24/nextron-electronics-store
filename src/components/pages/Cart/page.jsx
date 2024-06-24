@@ -4,7 +4,7 @@ import ItemInCart from "../../Additional/ItemInCart";
 function page({ total_amt = 1239.99 }) {
   return (
     <>
-      <div className="w-3/4 m-auto my-20">
+      <div className="w-4/5 m-auto my-20">
         <h2 className="text-[60px] font-semibold">Cart</h2>
         <div className="flex gap-10 justify-center items-center">
           <div className="bg-slate-100 shadow-xl w-2/3 p-5">
