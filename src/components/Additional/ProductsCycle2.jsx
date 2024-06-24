@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import ProductCycleCard from './ProductCycleCard';
+import ProductCard from './ProductCard';
 import { FaChevronLeft } from "react-icons/fa";
 import { FaChevronRight } from "react-icons/fa";
 
@@ -67,12 +67,14 @@ function ProductsCycle2() {
     <div className="flex gap-10 justify-center items-center py-20 min-h-[30rem]">
       <button className='ml-2' onClick={handlePrevClick} disabled={offset === 0}> <FaChevronLeft /> </button>
       {products.slice(offset, offset + productsPerPage).map((product) => (
-          <ProductCycleCard
-            key={product.id}
-            product_img={product.category.image}
-            product_title={product.title + " " + product.description.split(" ")[2]}
-            product_price={`$${product.price}`}
-          />
+        <ProductCard
+          img_url={product.category.image}
+          img_alt_text="not-found"
+          product_name={product.title + " " + product.description.split(" ")[2]}
+          product_price={`$${product.price}`}
+          show={false}
+          bg_color="bg-slate-100"
+        />
       ))}
       <button className='mr-2' onClick={handleNextClick} disabled={offset >= products.length - productsPerPage}> <FaChevronRight /> </button>
     </div>

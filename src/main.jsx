@@ -12,6 +12,7 @@ import TrendingPage from "./components/pages/Trending/page.jsx";
 import ProductsPage from "./components/pages/Products/page.jsx";
 import ContactPage from "./components/pages/ContactUs/page.jsx";
 import CartPage from "./components/pages/Cart/page.jsx";
+import ProductViewPage from "./components/pages/ProductView/page.jsx";
 
 const router = createBrowserRouter([
   {
@@ -47,6 +48,11 @@ const router = createBrowserRouter([
         path: "/account",
         element: <ErrorPage />,
         errorElement: <ErrorPage />,
+      },
+      {
+        path:"/product/:productSlug/:productUuid",
+        element: <ProductViewPage/>,
+        errorElement: <ErrorPage/>,
       },
     ],
   },
