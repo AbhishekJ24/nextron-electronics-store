@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 import { RiCloseLargeFill } from "react-icons/ri";
 import { useDispatch, useSelector } from 'react-redux'
+import { itemCountReducer } from '../../redux/itemsTracker/cartItemsReducer';
 import { deleteProduct } from '../../redux/itemsTracker/productsSlice';
 
 function ItemInCart() {
   const products = useSelector((state) => state.products.products);
   const dispatch = useDispatch();
 
-  const handleDelete = (id) => {
+  const handleDelete = (id, quantity) => {
     dispatch(deleteProduct(id));
+    dispatch(itemCountReducer(quantity))
   };
 
   return (
@@ -36,7 +38,7 @@ function ItemInCart() {
                 <td className="px-5 py-8">{item.quantity}</td>
                 <td className="px-5 py-8">${item.quantity * item.price}</td>
                 <td className="px-5 py-8">
-                  <button onClick={() => handleDelete(item.id)} className="text-slate-950 hover:text-slate-500">
+                  <button onClick={() => handleDelete(item.id, item.quantity)} className="text-slate-950 hover:text-slate-500">
                     <RiCloseLargeFill />
                   </button>
                 </td>

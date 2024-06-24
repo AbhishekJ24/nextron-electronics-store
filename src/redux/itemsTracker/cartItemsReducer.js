@@ -14,8 +14,11 @@ export const cartItemsReducer = createSlice({
     addItemsByNumber: (state, action) => {
       state.value += action.payload
     },
+    itemCountReducer: (state, action) => {
+      state.value -= action.payload
+    },
   }
 })
 
-export const { addItems, addItemsByNumber } = cartItemsReducer.actions
+export const { addItems, addItemsByNumber, itemCountReducer } = cartItemsReducer.actions
 export default cartItemsReducer.reducer

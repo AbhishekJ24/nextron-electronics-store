@@ -6,7 +6,7 @@ import { addProduct } from "../../redux/itemsTracker/productsSlice";
 import MyAlertButton from "./MyAlertButton";
 import { v4 as uuidv4 } from 'uuid';
 
-function ProductCard({ img_url, img_alt_text, product_name, product_price }) {
+function ProductCard({ img_url, img_alt_text, product_name, product_price, show = true, bg_color = "bg-slate-200" }) {
   const [showAlert, setShowAlert] = useState(false);
   const [it, setIt] = useState(1);
   const [removeDisable, setRemoveDisabled] = useState(false);
@@ -38,7 +38,7 @@ function ProductCard({ img_url, img_alt_text, product_name, product_price }) {
 
   const dispatch = useDispatch();
   return (
-    <div className="bg-slate-200 rounded-2xl m-auto px-2 shadow-xl product-card text-xs flex flex-col justify-around">
+    <div className={`${bg_color} rounded-2xl m-auto px-2 shadow-xl product-card text-xs flex flex-col justify-around`}>
       <div>
         <div className="h-48 flex items-center justify-center">
           <img
@@ -52,36 +52,38 @@ function ProductCard({ img_url, img_alt_text, product_name, product_price }) {
           ${product_price}
         </div>
       </div>
-      <div>
-        <div className="flex justify-center gap-5 mb-4">
-          <button className="border-none bg-slate-500 hover:bg-slate-400 flex justify-center items-center px-4 py-2 rounded-xl font-semibold text-slate-50 w-24">
-            BUY NOW
-          </button>
-          <button
-            onClick={handleAddToCart}
-            className="border-none bg-slate-500 hover:bg-slate-400 flex justify-center items-center px-2 py-1 rounded-xl font-semibold text-slate-50 w-24"
-          >
-            ADD TO CART
-          </button>
+      {show &&
+        <div>
+          <div className="flex justify-center gap-5 mb-4">
+            <button className="border-none bg-slate-500 hover:bg-slate-400 flex justify-center items-center px-4 py-2 rounded-xl font-semibold text-slate-50 w-24">
+              BUY NOW
+            </button>
+            <button
+              onClick={handleAddToCart}
+              className="border-none bg-slate-500 hover:bg-slate-400 flex justify-center items-center px-2 py-1 rounded-xl font-semibold text-slate-50 w-24"
+            >
+              ADD TO CART
+            </button>
+          </div>
+          <div className="flex justify-center items-center gap-2">
+            <button
+              disabled={removeDisable}
+              onClick={() => setIt(it - 1)}
+              className="bg-gray-300 hover:bg-gray-400 text-black font-semibold p-2 rounded disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              -
+            </button>
+            <span className="mx-2">{it}</span>
+            <button
+              disabled={addDisable}
+              onClick={() => setIt(it + 1)}
+              className="bg-gray-300 hover:bg-gray-400 text-black font-semibold p-2 rounded disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              +
+            </button>
+          </div>
         </div>
-        <div className="flex justify-center items-center gap-2">
-          <button
-            disabled={removeDisable}
-            onClick={() => setIt(it - 1)}
-            className="bg-gray-300 hover:bg-gray-400 text-black font-semibold p-2 rounded disabled:opacity-50 disabled:cursor-not-allowed"
-          >
-            -
-          </button>
-          <span className="mx-2">{it}</span>
-          <button
-            disabled={addDisable}
-            onClick={() => setIt(it + 1)}
-            className="bg-gray-300 hover:bg-gray-400 text-black font-semibold p-2 rounded disabled:opacity-50 disabled:cursor-not-allowed"
-          >
-            +
-          </button>
-        </div>
-      </div>
+      }
       {showAlert && (
         <MyAlertButton text="Items added to cart successfully" />
       )}
