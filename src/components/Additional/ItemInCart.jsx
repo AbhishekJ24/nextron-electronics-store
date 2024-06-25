@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { RiCloseLargeFill } from "react-icons/ri";
 import { useDispatch, useSelector } from 'react-redux'
 import { itemCountReducer } from '../../redux/itemsTracker/cartItemsReducer';
 import { deleteProduct } from '../../redux/itemsTracker/productsSlice';
+import slugify from 'slugify';
 
 function ItemInCart() {
   const products = useSelector((state) => state.products.products);
@@ -33,7 +35,11 @@ function ItemInCart() {
                 <td className="px-5 py-8">
                   <img src={item.img_url} alt={item.name} className="h-28 w-28 object-cover" />
                 </td>
-                <td className="px-5 py-8">{item.name}</td>
+                <td className="px-5 py-8">
+                  <Link className="transition-all hover:ease-linear hover:underline" to={`/${slugify(item.name, { lower: true })}/${item.id}`}>
+                    {item.name}
+                  </Link>
+                </td>
                 <td className="px-5 py-8">${item.price}</td>
                 <td className="px-5 py-8">{item.quantity}</td>
                 <td className="px-5 py-8">${item.quantity * item.price}</td>

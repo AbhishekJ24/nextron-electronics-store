@@ -68,6 +68,7 @@ function ProductsCycle() {
       <button onClick={handlePrevClick} disabled={offset === 0}> <FaChevronLeft /> </button>
       {products.slice(offset, offset + productsPerPage).map((product) => (
         <ProductCard
+          key={product.id}
           img_url={product.image}
           img_alt_text="not-found"
           product_name={product.title}

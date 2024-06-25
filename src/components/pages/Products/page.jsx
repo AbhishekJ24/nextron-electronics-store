@@ -37,6 +37,7 @@ function page() {
             return (
               <ProductCard
                 key={item.id}
+                prodId={item.id}
                 img_url={item.image}
                 img_alt_text={item.title}
                 product_name={item.title}
