@@ -36,7 +36,7 @@ function ItemInCart() {
                   <img src={item.img_url} alt={item.name} className="h-28 w-28 object-cover" />
                 </td>
                 <td className="px-5 py-8">
-                  <Link className="transition-all hover:ease-linear hover:underline" to={`/${slugify(item.name, { lower: true })}/${item.id}`}>
+                  <Link className="transition-all hover:ease-linear hover:underline font-medium" to={`/${slugify(item.name, { lower: true })}/${item.id}`}>
                     {item.name}
                   </Link>
                 </td>

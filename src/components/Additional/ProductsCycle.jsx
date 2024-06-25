@@ -72,7 +72,7 @@ function ProductsCycle() {
           img_url={product.image}
           img_alt_text="not-found"
           product_name={product.title}
-          product_price={`$${product.price}`}
+          product_price={`${product.price}`}
           show={false}
           bg_color="bg-slate-100"
         />
