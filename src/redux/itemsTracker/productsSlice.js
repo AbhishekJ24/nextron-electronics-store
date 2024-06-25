@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   products: [],
+  totalAmount: 0
 };
 
 export const productsSlice = createSlice({
@@ -15,9 +16,14 @@ export const productsSlice = createSlice({
       } else {
         state.products.push({ ...action.payload, quantity: action.payload.quantity });
       }
+      state.totalAmount += (action.payload.price * action.payload.quantity);
     },
     deleteProduct: (state, action) => {
-      state.products = state.products.filter((product) => product.id !== action.payload);
+      const deletedProduct = state.products.find(product => product.id === action.payload);
+      if (deletedProduct) {
+        state.products = state.products.filter(product => product.id !== action.payload);
+        state.totalAmount -= (deletedProduct.price * deletedProduct.quantity);
+      }
     },
   },
 });
