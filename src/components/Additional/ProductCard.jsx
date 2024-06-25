@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addItems } from "../../redux/itemsTracker/cartItemsReducer";
 import { addItemsByNumber } from "../../redux/itemsTracker/cartItemsReducer";
 import { addProduct } from "../../redux/itemsTracker/productsSlice";
 import MyAlertButton from "./MyAlertButton";
 import { v4 as uuidv4 } from 'uuid';
+import slugify from "slugify";
 
-function ProductCard({ img_url, img_alt_text, product_name, product_price, show = true, bg_color = "bg-slate-200" }) {
+function ProductCard({ prodId, img_url, img_alt_text, product_name, product_price, show = true, bg_color = "bg-slate-200" }) {
   const [showAlert, setShowAlert] = useState(false);
   const [it, setIt] = useState(1);
   const [removeDisable, setRemoveDisabled] = useState(false);
@@ -22,7 +24,7 @@ function ProductCard({ img_url, img_alt_text, product_name, product_price, show 
     if (sure) {
       dispatch(it === 1 ? addItems() : addItemsByNumber(it));
       const newProduct = {
-        id: uuidv4(),
+        id: prodId,
         name: product_name,
         price: product_price,
         quantity: it,
@@ -47,7 +49,11 @@ function ProductCard({ img_url, img_alt_text, product_name, product_price, show 
             className="h-40 w-40 object-contain mix-blend-multiply hover:ease-in hover:scale-105 transition-all"
           />
         </div>
-        <div className="m-2 text-base text-center">{product_name}</div>
+        <div className="m-2 text-base text-center">
+          <Link className="transition-all hover:ease-linear hover:underline" to={`/${slugify(product_name, { lower: true })}/${prodId}`}>
+            {product_name}
+          </Link>
+        </div>
         <div className="font-semibold text-lg text-center">
           ${product_price}
         </div>
