@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import PageTitle from "../../Additional/PageTitle";
 import ProductsCycle2 from "../../Additional/ProductsCycle2";
@@ -14,6 +14,10 @@ function Page() {
   const products = useSelector((state) => state.allProducts.allProducts);
   const product = products.find((prod) => prod.id === parseInt(id, 10));
   const images = [product.image, "/samples/1.jpg", "/samples/2.jpg", "/samples/3.jpg", "/samples/4.jpg"]
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const toggleTechnicalDetails = () => {
     setShowTechnicalDetails(!showTechnicalDetails);

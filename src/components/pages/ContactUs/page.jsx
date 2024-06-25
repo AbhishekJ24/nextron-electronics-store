@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { AddressMap } from "../../Additional/AddressMap";
 import ContactForm from "../../Additional/ContactForm";
 
 function page() {
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <>
       <div className="w-3/4 m-auto">

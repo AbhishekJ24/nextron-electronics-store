@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ProductCard from "../../Additional/ProductCard";
 import CreditCard from "../../Additional/CreditCard";
 import PageTitle from "../../Additional/PageTitle";
 
 function page() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <CreditCard />

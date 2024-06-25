@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ItemInCart from "../../Additional/ItemInCart";
 
 function page({ total_amt = 1239.99 }) {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <div className="w-4/5 m-auto my-20">

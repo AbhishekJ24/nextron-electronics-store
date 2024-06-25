@@ -18,6 +18,10 @@ function page() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
     async function getProducts() {
       const products = await fetchProducts();
       setData(products);

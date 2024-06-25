@@ -6,6 +6,11 @@ import ImageBanner from "../../Additional/ImageBanner";
 import PageTitle from "../../Additional/PageTitle";
 
 function Home() {
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const width = window.innerWidth
   const [sony_banner, setsony_banner] = useState("/homepage/sony1.jpg")
   useEffect(() => {
