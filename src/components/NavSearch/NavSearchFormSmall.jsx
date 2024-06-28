@@ -18,7 +18,7 @@ const validationSchema = Yup.object({
 function NavSearchForm() {
   const navigate = useNavigate();
   const onSubmit = (values) => {
-    navigate("/products");
+    navigate(`/products/${values['search-query']}`);
   };
   return (
     <>

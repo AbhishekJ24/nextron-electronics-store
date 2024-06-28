@@ -3,10 +3,6 @@ import * as Yup from "yup";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-async function getSearchQueryProduct() {
-  const response = fetch(`https://dummyjson.com/products/search?q=${query}`);
-}
-
 const initialValues = {
   query: "",
 };
@@ -18,7 +14,8 @@ const validationSchema = Yup.object({
 function NavSearchForm() {
   const navigate = useNavigate();
   const onSubmit = (values) => {
-    navigate("/products");
+    
+    navigate(`/products/${values['search-query']}`);
   };
   return (
     <>
