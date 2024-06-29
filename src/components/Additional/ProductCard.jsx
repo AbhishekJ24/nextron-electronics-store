@@ -20,19 +20,16 @@ function ProductCard({ prodId, img_url, img_alt_text, product_name, product_pric
   }, [it]);
 
   const handleAddToCart = () => {
-    const sure = confirm(`Do you want to add ${product_name} to your cart?`);
-    if (sure) {
-      dispatch(it === 1 ? addItems() : addItemsByNumber(it));
-      const newProduct = {
-        id: prodId,
-        name: product_name,
-        price: product_price,
-        quantity: it,
-        img_url: img_url,
-      };
-      dispatch(addProduct(newProduct));
-      setShowAlert(true);
-    }
+    dispatch(it === 1 ? addItems() : addItemsByNumber(it));
+    const newProduct = {
+      id: prodId,
+      name: product_name,
+      price: product_price,
+      quantity: it,
+      img_url: img_url,
+    };
+    dispatch(addProduct(newProduct));
+    setShowAlert(true);
     setTimeout(() => {
       setShowAlert(false);
     }, 1500);

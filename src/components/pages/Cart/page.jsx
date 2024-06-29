@@ -11,12 +11,12 @@ function page() {
   return (
     <>
       <div className="w-4/5 m-auto my-20">
-        <h2 className="text-[60px] font-semibold">Cart</h2>
-        <div className="flex gap-10 justify-center items-center">
+        <h2 className="text-[60px] font-semibold mb-8">Cart</h2>
+        <div className="flex gap-10 justify-center">
           <div className="bg-slate-100 shadow-xl w-2/3 p-5">
             <ItemInCart />
           </div>
-          <div className="bg-slate-100 w-1/3 m-auto shadow-xl py-10 px-5">
+          <div className="bg-slate-100 h-max w-1/3 mx-auto shadow-xl py-10 px-5">
             <h2 className="mb-4 font-medium">Cart total</h2>
             <hr />
             <div className="mt-4 flex justify-between font-medium">

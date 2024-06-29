@@ -33,7 +33,9 @@ function ItemInCart() {
             {products.map((item) => (
               <tr key={item.id}>
                 <td className="px-5 py-8">
-                  <img src={item.img_url} alt={item.name} className="h-28 w-28 object-cover" />
+                  <div className='bg-white drop-shadow-xl p-2'>
+                    <img src={item.img_url} alt={item.name} className="h-28 w-28 object-contain mix-blend-multiply" />
+                  </div>
                 </td>
                 <td className="px-5 py-8">
                   <Link className="transition-all hover:ease-linear hover:underline font-medium" to={`/${slugify(item.name, { lower: true })}/${item.id}`}>
@@ -52,7 +54,7 @@ function ItemInCart() {
             ))}
           </tbody>
         </table>
-        : <div className='py-5 px-10'>No items in cart</div>}
+        : <div className='pt-4 pl-6'>No items in cart</div>}
     </div>
 
   );

@@ -119,7 +119,7 @@ function Navbar() {
               <Link to="/contactus">Contact Us</Link>
             </li>
             <li className="pb-5 px-4 py-4 hover:bg-slate-500">
-              <Link to="/account">My Account</Link>
+              <Link to="/cart">Cart</Link>
             </li>
           </ul>
         )}
