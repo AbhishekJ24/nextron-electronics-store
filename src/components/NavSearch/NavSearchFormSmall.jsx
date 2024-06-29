@@ -1,6 +1,6 @@
 import { Field, Form, Formik } from "formik";
 import * as Yup from "yup";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 
 async function getSearchQueryProduct() {
@@ -18,8 +18,13 @@ const validationSchema = Yup.object({
 function NavSearchForm() {
   const navigate = useNavigate();
   const onSubmit = (values) => {
-    navigate(`/products/${values['search-query']}`);
+    const q = values['search-query'].trim();
+    if (q.length != 0)
+      navigate(`/products/${q}`);
+    else
+      navigate('/products')
   };
+
   return (
     <>
       <Formik
