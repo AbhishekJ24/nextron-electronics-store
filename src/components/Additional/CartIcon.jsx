@@ -6,7 +6,7 @@ function CartIcon() {
   const itemCount = useSelector((state) => state.cartCount.value);
 
   return (
-    <Link to="/cart" className="relative inline-block transition-all hover:ease-out hover:invert">
+    <Link to="/cart" className="relative inline-block transition-all ease-linear">
       <svg
         fill="#ffffff"
         version="1.1"

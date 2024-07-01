@@ -33,7 +33,7 @@ function ItemInCart() {
             {products.map((item) => (
               <tr key={item.id}>
                 <td className="px-5 py-8">
-                  <div className='bg-white drop-shadow-xl p-2'>
+                  <div className='bg-white flex items-center justify-center drop-shadow-xl p-2 rounded-lg opacity-90'>
                     <img src={item.img_url} alt={item.name} className="h-28 w-28 object-contain mix-blend-multiply" />
                   </div>
                 </td>
