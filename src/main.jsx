@@ -14,6 +14,7 @@ import ContactPage from "./components/pages/ContactUs/page.jsx";
 import CartPage from "./components/pages/Cart/page.jsx";
 import FilterProductPage from "./components/pages/FilterProducts/page.jsx";
 import ProductViewPage from "./components/pages/ProductView/page.jsx";
+import PaymentCheckoutPage from "./components/pages/PaymentCheckout/page.jsx";
 
 const router = createBrowserRouter([
   {
@@ -58,6 +59,11 @@ const router = createBrowserRouter([
       {
         path: "/:productName/:uuid",
         element: <ProductViewPage />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "/checkout",
+        element: <PaymentCheckoutPage />,
         errorElement: <ErrorPage />,
       },
     ],

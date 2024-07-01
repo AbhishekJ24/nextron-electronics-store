@@ -5,7 +5,7 @@ import ProductsCycle2 from "../../Additional/ProductsCycle2";
 import ImageBanner from "../../Additional/ImageBanner";
 import PageTitle from "../../Additional/PageTitle";
 
-function Home() {
+function page() {
   
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -37,4 +37,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default page;
