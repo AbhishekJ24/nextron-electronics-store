@@ -1,4 +1,9 @@
 # Nextron Electronics Store
+<div align="center">
+<img src="https://github.com/AbhishekJ24/nextron-electronics-store/assets/90437046/9fec5e71-897d-44c5-a09c-3bb1f4a9cb87" alt="nextron-lg" align="center" width="900"/>
+
+<img src="https://github.com/AbhishekJ24/nextron-electronics-store/assets/90437046/b9ac0e29-e834-444a-b079-e270f9d368df" alt="nextron-md" align="center" width="500"/> <img src="https://github.com/AbhishekJ24/nextron-electronics-store/assets/90437046/c86c1901-46ea-491d-aa7c-49f9b9ed7a89" alt="nextron-sm" align="center" width="280"/>
+</div>
 
 Welcome to **Nextron Electronics Store**, your one-stop destination for all things electronics. This project is a modern, responsive e-commerce platform built using React.js, leveraging the power of various libraries and tools to ensure a seamless and immersive user experience.
 
