@@ -31,13 +31,6 @@ body {
 }
 
 .loader {
-  position: fixed;
-  z-index: 9999;
-  left: 50%;
-  top: 50%;
-  width: 30px;
-  height: 30px;
-  margin: -50px 0 0 -50px;
   border: 6px solid #b3d8ff;
   border-top: 6px solid #001b37;
   border-radius: 50%;
