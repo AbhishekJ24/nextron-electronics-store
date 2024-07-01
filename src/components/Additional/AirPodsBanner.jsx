@@ -14,7 +14,7 @@ function AirPodsBanner() {
     useEffect(() => {
         const interval = setInterval(() => {
             setAirIndex((prevIndex) => (prevIndex + 1) % airpods.length);
-        }, 4000);
+        }, 3000);
 
         return () => clearInterval(interval);
     }, [airpods.length]);

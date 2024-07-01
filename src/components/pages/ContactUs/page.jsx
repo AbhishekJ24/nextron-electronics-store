@@ -26,7 +26,7 @@ function page() {
             <h2 className="text-slate-900 font-semibold text-[50px] lg:text-[60px] mt-14 leading-none mb-6 w-3/4">
               Store Locations
             </h2>
-            <div className="text-slate-500 grid max-sm:grid-cols-1 grid-cols-2 gap-20 text-[20px]">
+            <div className="text-slate-500 grid max-sm:grid-cols-1 grid-cols-2 gap-20 max-md:gap-5 text-[20px]">
               <div>
                 <span>+91 (734) 01-69801</span>
                 <div>

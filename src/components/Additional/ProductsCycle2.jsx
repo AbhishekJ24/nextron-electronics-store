@@ -69,9 +69,9 @@ function ProductsCycle2() {
       {products.slice(offset, offset + productsPerPage).map((product) => (
         <ProductCard
           key={product.id}
-          img_url={product.category.image}
+          img_url={product.images[0]}
           img_alt_text="not-found"
-          product_name={product.title + " " + product.description.split(" ")[2]}
+          product_name={product.title}
           product_price={`${product.price}`}
           show={false}
           bg_color="bg-slate-100"

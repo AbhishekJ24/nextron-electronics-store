@@ -75,9 +75,9 @@ function Page() {
               <h2>Total</h2>
               <h2 className="roboto tracking-wide">${calculateTotal()}</h2>
             </div>
-            <div>
+            <div className="font-medium">
               <button
-                className="block rounded-lg m-auto w-4/5 p-4 mb-5 bg-blue-800 text-white hover:ease-out transition-all"
+                className="block rounded-lg m-auto w-4/5 p-4 mb-5 bg-blue-900 text-blue-50 hover:ease-out transition-all"
                 type="submit"
                 onClick={() => {
                   if (total_amt > 0) navigate("/checkout");
@@ -87,10 +87,12 @@ function Page() {
                 PROCEED TO CHECKOUT
               </button>
               <button
-                className="block rounded-lg m-auto w-4/5 p-4 bg-blue-100 hover:ease-out transition-all"
-                disabled={total_amt <= 0}
+                className="block rounded-lg m-auto w-4/5 p-4 mb-5 bg-blue-300 text-blue-950 hover:bg-blue-200 hover:ease-out transition-all"
+                onClick={() => {
+                  navigate("/");
+                }}
               >
-                <img className="h-12 m-auto" src="/razorpay.png" alt="" />
+                CONTINUE SHOPPING
               </button>
             </div>
           </div>
