@@ -58,11 +58,11 @@ To get a local copy up and running, follow these simple steps:
 
 4. Running the application:
 
-  ```npm run dev```
-  or
-  ```yarn dev```
+   ```npm run dev```
+   or
+   ```yarn dev```
 
-5. Access ```http://localhost:5173``` on your browser
+6. Access ```http://localhost:5173``` on your browser
 
 ## Usage
 Explore the wide range of electronics, use the search bar to find specific products, add items to your cart, and proceed to simulate a payment using the XYZ Payment Gateway. Enjoy the smooth and intuitive user experience designed with a focus on UX best practices.
