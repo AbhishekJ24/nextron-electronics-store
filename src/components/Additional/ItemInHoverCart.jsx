@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import slugify from 'slugify';
 import { RiCloseFill } from 'react-icons/ri';
 import { useDispatch } from 'react-redux';
-import { addItems, itemCountReducer } from "../../redux/itemsTracker/cartItemsReducer";
-import { addProduct, deleteProduct } from "../../redux/itemsTracker/productsSlice";
+import { itemCountReducer } from "../../redux/itemsTracker/cartItemsReducer";
+import { deleteProduct } from "../../redux/itemsTracker/productsSlice";
 
 function ItemInHoverCart({ idd, img_url, name, price, quantity }) {
     const dispatch = useDispatch();
@@ -15,7 +15,7 @@ function ItemInHoverCart({ idd, img_url, name, price, quantity }) {
     };
 
     return (
-        <div className='opensans min-h-28 w-full flex gap-5'>
+        <div className='min-h-28 w-full flex gap-5'>
             <div className='bg-white opacity-90 drop-shadow-xl rounded-lg p-2 w-1/4 flex items-center justify-center'>
                 <img src={img_url} alt={name} className="h-20 w-20 object-contain mix-blend-multiply" />
             </div>

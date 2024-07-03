@@ -66,7 +66,7 @@ function Navbar() {
         <div className="flex justify-between items-center">
           <div className="flex items-center gap-28">
             <a
-              className="logo font-extrabold text-5xl text-white mb-2"
+              className="logo raleway font-extrabold text-6xl text-white mb-2"
               href="/"
             >
               .nextron
@@ -81,7 +81,7 @@ function Navbar() {
             >
               <CartIcon />
               {showHoverCart && (
-                <div className="absolute right-5 top-5 max-h-[30rem] overflow-y-scroll overflow-x-clip w-[30rem] text-slate-200 bg-slate-800 opacity-95 rounded-xl p-5">
+                <div className="absolute top-12 right-0 max-h-[30rem] overflow-y-scroll overflow-x-clip w-[27rem] text-slate-200 bg-slate-800 opacity-95 rounded-xl p-5">
                   <div className="flex flex-col gap-10 justify-center items-center cursor-default">
                     {products.length > 0 ? (
                       products.map((item) => (

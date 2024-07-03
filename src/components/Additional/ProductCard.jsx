@@ -14,12 +14,28 @@ function ProductCard({ prodId, img_url, img_alt_text, product_name, product_pric
   const [removeDisable, setRemoveDisabled] = useState(false);
   const [addDisable, setAddDisabled] = useState(false);
 
+  const [cartDelayWhite, setCartDelayWhite] = useState(false)
+
   useEffect(() => {
     setRemoveDisabled(it === 1);
     setAddDisabled(it === 10);
   }, [it]);
 
   const handleAddToCart = () => {
+    setCartDelayWhite(true)
+
+    setTimeout(() => {
+      setCartDelayWhite(false)
+    }, 2000);
+
+    setTimeout(() => {
+      setShowAlert(true)
+    }, 2500);
+
+    setTimeout(() => {
+      setShowAlert(false)
+    }, 5000);
+
     dispatch(it === 1 ? addItems() : addItemsByNumber(it));
     const newProduct = {
       id: prodId,
@@ -29,68 +45,69 @@ function ProductCard({ prodId, img_url, img_alt_text, product_name, product_pric
       img_url: img_url,
     };
     dispatch(addProduct(newProduct));
-    setShowAlert(true);
-    setTimeout(() => {
-      setShowAlert(false);
-    }, 1500);
   };
 
   const dispatch = useDispatch();
   return (
-    <div className={`${bg_color} rounded-2xl m-auto px-2 shadow-xl product-card text-xs flex flex-col justify-around`}>
-      <div>
-        <div className="h-48 flex items-center justify-center">
-          <img
-            src={img_url}
-            alt={img_alt_text}
-            className="h-40 w-40 object-contain mix-blend-multiply hover:ease-in hover:scale-105 transition-all"
-          />
-        </div>
-        <div className="m-2 text-base text-center">
-          <Link className="transition-all hover:ease-linear hover:underline" to={`/${slugify(product_name, { lower: true })}/${prodId}`}>
-            {product_name}
-          </Link>
-        </div>
-        <div className="font-semibold text-lg text-center">
-          ${product_price}
-        </div>
-      </div>
-      {show &&
-        <div>
-          <div className="flex justify-center gap-5 mb-4">
-            <button className="border-none bg-slate-500 hover:bg-slate-400 flex justify-center items-center px-4 py-2 rounded-xl font-semibold text-slate-50 w-24">
-              BUY NOW
-            </button>
-            <button
-              onClick={handleAddToCart}
-              className="border-none bg-slate-500 hover:bg-slate-400 flex justify-center items-center px-2 py-1 rounded-xl font-semibold text-slate-50 w-24"
-            >
-              ADD TO CART
-            </button>
-          </div>
-          <div className="flex justify-center items-center gap-2">
-            <button
-              disabled={removeDisable}
-              onClick={() => setIt(it - 1)}
-              className="bg-gray-300 hover:bg-gray-400 text-black font-semibold p-2 rounded disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              -
-            </button>
-            <span className="mx-2">{it}</span>
-            <button
-              disabled={addDisable}
-              onClick={() => setIt(it + 1)}
-              className="bg-gray-300 hover:bg-gray-400 text-black font-semibold p-2 rounded disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              +
-            </button>
-          </div>
-        </div>
+    <>
+      {
+        cartDelayWhite && <div className="bg-white opacity-75 w-full h-full fixed top-0 left-0 z-40"></div>
       }
-      {showAlert && (
-        <MyAlertButton text="Items added to cart successfully" />
-      )}
-    </div>
+      <div className={`${bg_color} rounded-2xl m-auto px-2 shadow-xl product-card text-xs flex flex-col justify-around`}>
+        <div>
+          <div className="h-48 flex items-center justify-center">
+            <img
+              src={img_url}
+              alt={img_alt_text}
+              className="h-40 w-40 object-contain mix-blend-multiply hover:ease-in hover:scale-105 transition-all"
+            />
+          </div>
+          <div className="m-2 text-base text-center">
+            <Link className="transition-all hover:ease-linear hover:underline" to={`/${slugify(product_name, { lower: true })}/${prodId}`}>
+              {product_name}
+            </Link>
+          </div>
+          <div className="font-semibold text-lg text-center">
+            ${product_price}
+          </div>
+        </div>
+        {show &&
+          <div>
+            <div className="flex justify-center gap-5 mb-4">
+              <button className="border-none bg-slate-500 hover:bg-slate-400 flex justify-center items-center px-4 py-2 rounded-xl font-semibold text-slate-50 w-24">
+                BUY NOW
+              </button>
+              <button
+                onClick={handleAddToCart}
+                className="border-none bg-slate-500 hover:bg-slate-400 flex justify-center items-center px-2 py-1 rounded-xl font-semibold text-slate-50 w-24"
+              >
+                ADD TO CART
+              </button>
+            </div>
+            <div className="flex justify-center items-center gap-2">
+              <button
+                disabled={removeDisable}
+                onClick={() => setIt(it - 1)}
+                className="bg-gray-300 hover:bg-gray-400 text-black font-semibold p-2 rounded disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                -
+              </button>
+              <span className="mx-2">{it}</span>
+              <button
+                disabled={addDisable}
+                onClick={() => setIt(it + 1)}
+                className="bg-gray-300 hover:bg-gray-400 text-black font-semibold p-2 rounded disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                +
+              </button>
+            </div>
+          </div>
+        }
+        {showAlert && (
+          <MyAlertButton text="Items added to cart successfully" />
+        )}
+      </div>
+    </>
   );
 }
 

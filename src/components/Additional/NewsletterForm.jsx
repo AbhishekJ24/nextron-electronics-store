@@ -44,7 +44,7 @@ function NewsletterForm() {
                     </Field>
                 </div>
                 <div className="text-base">
-                    <button className="searchQueryButton transition-all hover:ease-in rounded-md px-4 py-[0.1rem]" type="submit">
+                    <button className="searchQueryButton transition-all hover:ease-in rounded-md text-sm px-3 py-[0.1rem]" type="submit">
                         Subscribe
                     </button>
                 </div>

@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import PageTitle from "../../Additional/PageTitle";
 import ProductsCycle2 from "../../Additional/ProductsCycle2";
 import { HiChevronRight } from "react-icons/hi";
 import { useParams } from 'react-router-dom';
+import { Skeleton } from '@mui/material';
 
 function Page() {
   const params = useParams()
   const [idx, setIdx] = useState(0)
+  const [skeleton, setSkeleton] = useState(true)
   const [showTechnicalDetails, setShowTechnicalDetails] = useState(false);
   const [showAdditionalInfo, setShowAdditionalInfo] = useState(false);
   const id = params.uuid
@@ -17,6 +19,9 @@ function Page() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    setTimeout(() => {
+      setSkeleton(false)
+    }, 5000);
   }, []);
 
   const toggleTechnicalDetails = () => {
@@ -30,15 +35,9 @@ function Page() {
   const handleAddToCart = () => {
     //
     //
-    //
-    //
-    //
   };
 
   const handleBuyNow = () => {
-    //
-    //
-    //
     //
     //
   };
@@ -55,50 +54,54 @@ function Page() {
     <>
       <div className="bg-slate-200 w-11/12 mx-auto max-sm:my-5 max-md:my-8 my-10 p-12 rounded-2xl flex flex-col gap-20">
         <div className='flex max-md:flex-col justify-around gap-10'>
-          <div>
-            <div className='flex max-md:flex-col-reverse gap-10 max-md:justify-center items-center'>
-              <div className='flex lg:flex-col gap-4'>
-                <button onClick={() => {
-                  handleChangeImage(0)
-                }
-                }>
-                  <div className='bg-slate-100 px-4 rounded-lg'>
-                  <img className='w-16 h-16 lg:w-28 lg:h-28 object-contain mix-blend-multiply' src={images[0]} alt="" />
+          {
+            !skeleton ? (
+              <div>
+                <div className='flex max-lg:flex-col-reverse gap-10 max-lg:justify-center items-center'>
+                  <div className='flex lg:flex-col gap-4'>
+                    <button onClick={() => handleChangeImage(0)}>
+                      <div className='bg-slate-100 px-4 rounded-lg'>
+                        <img className='w-16 h-16 lg:w-28 lg:h-28 object-contain mix-blend-multiply' src={images[0]} alt="" />
+                      </div>
+                    </button>
+                    <button onClick={() => handleChangeImage(1)}>
+                      <div className='bg-slate-100 px-4 rounded-lg'>
+                        <img className='w-16 h-16 lg:w-28 lg:h-28 object-contain' src={images[1]} alt="" />
+                      </div>
+                    </button>
+                    <button onClick={() => handleChangeImage(2)}>
+                      <div className='bg-slate-100 px-4 rounded-lg'>
+                        <img className='w-16 h-16 lg:w-28 lg:h-28 object-contain' src={images[2]} alt="" />
+                      </div>
+                    </button>
+                    <button onClick={() => handleChangeImage(3)}>
+                      <div className='bg-slate-100 px-4 rounded-lg'>
+                        <img className='w-16 h-16 lg:w-28 lg:h-28 object-contain' src={images[3]} alt="" />
+                      </div>
+                    </button>
                   </div>
-                </button>
-                <button onClick={() => {
-                  handleChangeImage(1)
-                }
-                }>
-                  <div className='bg-slate-100 px-4 rounded-lg'>
-                  <img className='w-16 h-16 lg:w-28 lg:h-28 object-contain' src={images[1]} alt="" />
+                  <div className='py-8 px-12 bg-slate-100 rounded-3xl'>
+                    <img className='w-52 h-52 lg:w-96 lg:h-96 object-contain mix-blend-multiply transition-all hover:ease-in hover:scale-105' src={images[idx]} alt={product.title} />
                   </div>
-                </button>
-                <button onClick={() => {
-                  handleChangeImage(2)
-                }
-                }>
-                  <div className='bg-slate-100 px-4 rounded-lg'>
-                  <img className='w-16 h-16 lg:w-28 lg:h-28 object-contain' src={images[2]} alt="" />
-                  </div>
-                </button>
-                <button onClick={() => {
-                  handleChangeImage(3)
-                }
-                }>
-                  <div className='bg-slate-100 px-4 rounded-lg'>
-                  <img className='w-16 h-16 lg:w-28 lg:h-28 object-contain' src={images[3]} alt="" />
-                  </div>
-                </button>
+                </div>
               </div>
-              <div className='py-8 px-12 bg-slate-100 rounded-3xl'>
-                <img className='w-52 h-52 lg:w-96 lg:h-96 object-contain mix-blend-multiply transition-all hover:ease-in hover:scale-105' src={images[idx]} alt={product.title} />
-              </div>
-            </div>
-          </div>
+            ) : (
+              <Skeleton
+                variant='rectangular'
+                animation="wave"
+                className="w-full max-md:w-[calc(100%-2.5rem)] max-lg:w-[calc(100%-5rem)] lg:w-[calc(100%-7.5rem)]"
+                height={575}
+              />
+            )
+          }
+
           <div className='w-11/12 m-auto lg:w-1/2 flex flex-col justify-center gap-24'>
             <div>
-              <h1 className="text-slate-800 max-sm:text-3xl max-md:text-4xl max-md:text-center text-5xl font-bold mb-4 tracking-wide leading-[1.1]">{product.title}</h1>
+              {
+                !skeleton ?
+                  <h1 className="text-slate-800 max-sm:text-3xl max-md:text-4xl max-md:text-center text-5xl font-bold mb-4 tracking-wide leading-[1.1]">{product.title}</h1> : <Skeleton variant="text" className="max-sm:w-3/4 max-md:w-2/3 max-lg:w-1/2 w-full"
+                    sx={{ fontSize: { xs: '3rem', md: '4rem', lg: '5rem' } }} />
+              }
               <p className="text-slate-600 max-sm:text-base text-lg mb-4">{product.description}</p>
               <p className="text-5xl font-extrabold tracking-wide text-slate-800 my-8">${product.price}</p>
               <div className="flex gap-5 max-md:justify-center">
