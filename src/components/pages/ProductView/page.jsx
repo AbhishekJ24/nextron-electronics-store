@@ -89,7 +89,7 @@ function Page() {
               <Skeleton
                 variant='rectangular'
                 animation="wave"
-                className="w-full max-md:w-[calc(100%-2.5rem)] max-lg:w-[calc(100%-5rem)] lg:w-[calc(100%-7.5rem)]"
+                className='w-[45%]'
                 height={575}
               />
             )

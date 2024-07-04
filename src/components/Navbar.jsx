@@ -74,14 +74,18 @@ function Navbar() {
             <NavSearchForm />
           </div>
           <div className="flex items-center gap-5 font-semibold">
-            <button
+            <div
               className="relative"
               onMouseEnter={handleCartHoverIn}
               onMouseLeave={handleCartHoverOut}
             >
               <CartIcon />
               {showHoverCart && (
-                <div className="absolute top-12 right-0 max-h-[30rem] overflow-y-scroll overflow-x-clip w-[27rem] text-slate-200 bg-slate-800 opacity-95 rounded-xl p-5">
+                <div
+                  className="absolute top-11 right-0 max-h-[30rem] overflow-y-scroll overflow-x-clip w-[27rem] text-slate-200 bg-slate-800 opacity-95 rounded-xl p-5"
+                  onMouseEnter={handleCartHoverIn}
+                  onMouseLeave={handleCartHoverOut}
+                >
                   <div className="flex flex-col gap-10 justify-center items-center cursor-default">
                     {products.length > 0 ? (
                       products.map((item) => (
@@ -100,7 +104,7 @@ function Navbar() {
                   </div>
                 </div>
               )}
-            </button>
+            </div>
             {!loginButton ? (
               <>
                 <button
