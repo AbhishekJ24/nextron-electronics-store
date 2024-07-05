@@ -4,11 +4,12 @@ import cors from "cors"
 
 const app = express()
 app.use(cors());
+app.set('view engine', 'ejs')
 
 const port = process.env.PORT || 5000
 
 app.get('/', (req, res) => {
-    res.send("Welcome to Nextron Electronics Backend\nHead over to /users endpoint to retrieve user details")
+    res.render("home")
 })
 
 app.get('/users', (req, res) => {
