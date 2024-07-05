@@ -7,7 +7,8 @@ import { useDispatch } from "react-redux";
 import { setProducts } from "../../../redux/productsStore/productsReducer";
 
 async function fetchProducts() {
-  let response = await fetch("https://fakestoreapi.com/products");
+  let response = await fetch("https://api.escuelajs.co/api/v1/products");
+  // let response = await fetch("https://fakestoreapi.com/products");
   let jresp = await response.json();
   return jresp;
 }
@@ -41,15 +42,14 @@ function page() {
         </div>
       ) : (
         <div className="flex gap-5 m-auto min-h-screen w-3/4 flex-wrap my-10">
-          {data.map((item) => {
+          {data.map((product) => {
             return (
               <ProductCard
-                key={item.id}
-                prodId={item.id}
-                img_url={item.image}
-                img_alt_text={item.title}
-                product_name={item.title}
-                product_price={item.price}
+                key={product.id}
+                img_url={product.images[0]}
+                img_alt_text="not-found"
+                product_name={product.title}
+                product_price={`${product.price}`}
               />
             );
           })}

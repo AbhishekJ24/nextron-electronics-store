@@ -11,7 +11,7 @@ function ProductsCycle2() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch('https://api.escuelajs.co/api/v1/products');
+        const response = await fetch('https://fakestoreapi.com/products');
         const data = await response.json();
         setProducts(data);
       } catch (error) {
@@ -66,15 +66,16 @@ function ProductsCycle2() {
   return (
     <div className="flex gap-10 justify-center items-center py-20 min-h-[30rem]">
       <button className='ml-2' onClick={handlePrevClick} disabled={offset === 0}> <FaChevronLeft /> </button>
-      {products.slice(offset, offset + productsPerPage).map((product) => (
+      {products.slice(offset, offset + productsPerPage).map((item) => (
         <ProductCard
-          key={product.id}
-          img_url={product.images[0]}
-          img_alt_text="not-found"
-          product_name={product.title}
-          product_price={`${product.price}`}
+          key={item.id}
+          prodId={item.id}
+          img_url={item.image}
+          img_alt_text={item.title}
+          product_name={item.title}
+          product_price={item.price}
           show={false}
-          bg_color="bg-slate-100"
+          bg_color='bg-slate-100'
         />
       ))}
       <button className='mr-2' onClick={handleNextClick} disabled={offset >= products.length - productsPerPage}> <FaChevronRight /> </button>
