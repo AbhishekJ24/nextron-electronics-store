@@ -5,7 +5,7 @@ import cors from "cors"
 const app = express()
 app.use(cors());
 
-const PORT = process.env.PORT || 5000
+const port = process.env.PORT || 5000
 
 app.get('/users', (req, res) => {
     res.json([
@@ -73,6 +73,6 @@ app.get('/users', (req, res) => {
     )
 })
 
-app.listen(PORT, () => {
+app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
 })
