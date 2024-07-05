@@ -9,8 +9,8 @@ export default ({ mode }) => {
     plugins: [react()],
     define: {
       'process.env': {
-        VITE_KEY_ID: env.VITE_KEY_ID,
-        VITE_KEY_SECRET: env.VITE_KEY_SECRET,
+        VITE_KEY_ID: JSON.stringify(env.VITE_KEY_ID),
+        VITE_KEY_SECRET: JSON.stringify(env.VITE_KEY_SECRET),
       },
     },
   });
