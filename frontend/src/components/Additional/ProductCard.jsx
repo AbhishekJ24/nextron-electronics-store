@@ -52,7 +52,7 @@ function ProductCard({ prodId, img_url, img_alt_text, product_name, product_pric
     <>
       {
         cartDelayWhite && <>
-          <Loader /> && <div className="bg-white opacity-75 w-full h-full fixed top-0 left-0 z-40"></div>
+          <Loader /> <div className="bg-white opacity-75 w-full h-full fixed top-0 left-0 z-40"></div>
         </>
       }
       <div className={`${bg_color} rounded-2xl m-auto px-2 shadow-xl product-card text-xs flex flex-col justify-evenly`}>

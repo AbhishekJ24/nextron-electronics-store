@@ -4,7 +4,8 @@ import CartIcon from "./Additional/CartIcon";
 import NavSearchForm from "./NavSearch/NavSearchForm";
 import NavSearchFormSmall from "./NavSearch/NavSearchFormSmall";
 import MyAlertButton from "./Additional/MyAlertButton";
-import { SlArrowDown } from "react-icons/sl";
+import { SlArrowLeft } from "react-icons/sl";
+import { SlArrowRight } from "react-icons/sl";
 import { useSelector } from "react-redux";
 import ItemInHoverCart from "./Additional/ItemInHoverCart";
 
@@ -143,12 +144,16 @@ function Navbar() {
               <>
                 Logged in as{" "}
                 <div>
-                  <span className="flex gap-3 justify-between items-center text-sm tracking-wide w-48 font-bold text-cyan-900 searchQueryButton px-4 py-2 rounded-lg">
+                  <span className="flex justify-around items-center text-sm tracking-wide w-[12.5rem] font-bold text-cyan-900 searchQueryButton px-auto py-2 rounded-lg">
+                    <button onClick={() => {
+                      setIdx(((idx - 1 + users.length) % users.length))
+                    }
+                    }><SlArrowLeft /></button>
                     {users[idx].username}
                     <button onClick={() => {
                       setIdx(((idx + 1) % users.length))
                     }
-                    }><SlArrowDown /></button>
+                    }><SlArrowRight /></button>
                   </span>
                 </div>
               </>
