@@ -16,8 +16,8 @@ const validationSchema = Yup.object({
 });
 
 const handleSubmit = (values, total_amt) => {
-  const key = import.meta.env.VITE_KEY_ID;
-  const secret = import.meta.env.VITE_KEY_SECRET;
+  const key = "rzp_test_6pYFNax08SnZLm";
+  const secret = "5W8RWgQk0qcTRUFmfSc3Wbd9";
   const amount = Math.round(parseFloat(total_amt) * 100)
 
   const options = {

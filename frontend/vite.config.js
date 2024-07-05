@@ -1,17 +1,9 @@
-import { defineConfig, loadEnv } from 'vite';
+import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
-export default ({ mode }) => {
-  const env = loadEnv(mode, process.cwd());
+export default () => {
 
   return defineConfig({
-    base: env.VITE_ROUTER_BASE_URL || '/',
     plugins: [react()],
-    define: {
-      'process.env': {
-        VITE_KEY_ID: JSON.stringify(env.VITE_KEY_ID),
-        VITE_KEY_SECRET: JSON.stringify(env.VITE_KEY_SECRET),
-      },
-    },
   });
 };
