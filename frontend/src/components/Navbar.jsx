@@ -4,20 +4,39 @@ import CartIcon from "./Additional/CartIcon";
 import NavSearchForm from "./NavSearch/NavSearchForm";
 import NavSearchFormSmall from "./NavSearch/NavSearchFormSmall";
 import MyAlertButton from "./Additional/MyAlertButton";
+import { SlArrowDown } from "react-icons/sl";
 import { useSelector } from "react-redux";
 import ItemInHoverCart from "./Additional/ItemInHoverCart";
 
 function Navbar() {
   const products = useSelector((state) => state.products.products);
 
+  const [idx, setIdx] = useState(0)
   const [showHoverCart, setShowHoverCart] = useState(false);
   const [loginAlert, setLoginAlert] = useState(false);
   const [loginButton, setLoginButton] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
   const [menuIcon, setMenuIcon] = useState("/menu-closed.svg");
   const [showSearch, setShowSearch] = useState(false);
+  const [users, setUsers] = useState([])
 
   const loc = useLocation();
+
+  useEffect(() => {
+    const fetchUsers = async () => {
+      const response = await fetch("http://localhost:3000/users", {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        mode: 'cors'
+      });
+      const jresponse = await response.json();
+      setUsers(jresponse);
+    };
+
+    fetchUsers();
+  }, []);
 
   const toggleMenu = () => {
     setShowSearch(false);
@@ -121,12 +140,18 @@ function Navbar() {
                 </button>
               </>
             ) : (
-              <div>
+              <>
                 Logged in as{" "}
-                <span className="font-bold text-cyan-900 searchQueryButton p-2 rounded-lg mx-2">
-                  Abhishek Joshi
-                </span>
-              </div>
+                <div>
+                  <span className="flex gap-3 justify-between items-center text-sm tracking-wide w-48 font-bold text-cyan-900 searchQueryButton px-4 py-2 rounded-lg">
+                    {users[idx].username}
+                    <button onClick={() => {
+                      setIdx(((idx + 1) % users.length))
+                    }
+                    }><SlArrowDown /></button>
+                  </span>
+                </div>
+              </>
             )}
           </div>
         </div>
