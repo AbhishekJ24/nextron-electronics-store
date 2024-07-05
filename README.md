@@ -48,7 +48,7 @@ To get a local copy up and running, follow these simple steps:
    ```git clone https://github.com/AbhishekJ24/nextron-electronics-store.git```
 
 2. Navigate to the project directory:
-   ```cd nextron-electronics-store```
+   ```cd nextron-electronics-store/frontend/```
 
 3. Install dependencies:
    
