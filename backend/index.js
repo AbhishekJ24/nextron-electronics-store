@@ -1,18 +1,18 @@
 import express from "express";
 import cors from "cors";
 
-const app = express()
+const app = express();
 app.use(cors());
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs')
+app.set('view engine', 'ejs');
 
-const port = process.env.PORT || 5000
+const port = process.env.PORT || 3001;
 
 app.get('/', (req, res) => {
     res.render('home.ejs');
-})
+});
 
 app.get('/users', (req, res) => {
+    res.setHeader('Content-Type', 'application/json');
     res.json([
         {
             "username": "scarlett_johansson",
@@ -74,10 +74,9 @@ app.get('/users', (req, res) => {
             "gender": "female",
             "address": "777 Raider Rd, Westwood"
         }
-    ]
-    )
-})
+    ]);
+});
 
 app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`)
-})
+    console.log(`Example app listening on port ${port}`);
+});

@@ -8,6 +8,7 @@
     <style>
         body {
             display: flex;
+            flex-flow: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
@@ -15,14 +16,35 @@
             background-color: #f0f0f0;
         }
 
+        body>*{
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
         .message {
             text-align: center;
-            font-size: 24px;
-            padding: 20px;
+            font-size: 50px;
+            padding: 30px;
             background-color: #fff;
             border: 1px solid #ccc;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 40px;
+        }
+        .message:hover{
+            background-color: rgb(201, 193, 255);
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.3);
+        }
+        a{
+            text-decoration: none;
+            color: rgb(22, 10, 97);
+            font-size: 30px;
+            text-align: center;
+            border: 1px solid #ccc;
+            padding: 30px;
+            border-radius: 100px;
+            margin-top: 30px;
+        }
+        a:hover{
+            background-color: rgb(201, 193, 255);
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.3);
         }
     </style>
 </head>
@@ -31,6 +53,7 @@
     <div class="message">
         Welcome to Nextron Electronics Backend!
     </div>
+    <a target="_top" href="/users">Users Endpoint</a>
 </body>
 
 </html>
