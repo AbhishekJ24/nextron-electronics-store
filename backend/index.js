@@ -3,12 +3,13 @@ import cors from "cors";
 
 const app = express();
 app.use(cors());
+app.set('views','backend/views/')
 app.set('view engine', 'ejs');
 
 const port = process.env.PORT || 3001;
 
 app.get('/', (req, res) => {
-    res.render('backend/views/home.ejs',{});
+    res.render('home');
 });
 
 app.get('/users', (req, res) => {
