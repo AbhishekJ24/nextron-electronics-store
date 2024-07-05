@@ -1,6 +1,5 @@
-import express from "express"
-import mongoose from "mongoose"
-import cors from "cors"
+import express from "express";
+import cors from "cors";
 
 const app = express()
 app.use(cors());
@@ -9,7 +8,7 @@ app.set('view engine', 'ejs')
 const port = process.env.PORT || 5000
 
 app.get('/', (req, res) => {
-    res.render("home")
+    res.render("home");
 })
 
 app.get('/users', (req, res) => {
