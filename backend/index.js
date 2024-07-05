@@ -5,7 +5,7 @@ import cors from "cors"
 const app = express()
 app.use(cors());
 
-const PORT = process.env || 3030
+const PORT = process.env.PORT || 5000
 
 app.get('/users', (req, res) => {
     res.json([
