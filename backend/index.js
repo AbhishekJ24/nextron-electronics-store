@@ -8,7 +8,7 @@ app.set('view engine', 'ejs');
 const port = process.env.PORT || 3001;
 
 app.get('/', (req, res) => {
-    res.render('home.ejs',{});
+    res.render('backend/views/home.ejs',{});
 });
 
 app.get('/users', (req, res) => {
