@@ -1,0 +1,12 @@
+# Exported from Render on 2024-07-05T12:47:30Z
+services:
+- type: web
+  name: nextron-electronics-store
+  runtime: node
+  repo: https://github.com/AbhishekJ24/nextron-electronics-store
+  plan: free
+  region: oregon
+  buildCommand: npm install backend/
+  startCommand: node backend/index.js
+  rootDir: .
+version: "1"
