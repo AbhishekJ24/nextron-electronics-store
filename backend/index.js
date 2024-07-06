@@ -18,7 +18,7 @@ mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true 
 const port = process.env.PORT || 3001;
 
 app.get('/', (req, res) => {
-    res.render('home');
+    res.render('home.ejs');
 });
 
 app.use('/api', apiRoutes);
