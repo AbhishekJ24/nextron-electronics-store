@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import PageTitle from "../../Additional/PageTitle";
-import ProductsCycle2 from "../../Additional/ProductsCycle2";
+import ProductsCycle from "../../Additional/ProductsCycle";
 import { HiChevronRight } from "react-icons/hi";
 import { useParams } from 'react-router-dom';
 import { Skeleton } from '@mui/material';
@@ -9,20 +9,39 @@ import { Skeleton } from '@mui/material';
 function Page() {
   const params = useParams()
   const [idx, setIdx] = useState(0)
+  const [products, setProducts] = useState([])
   const [skeleton, setSkeleton] = useState(true)
   const [showTechnicalDetails, setShowTechnicalDetails] = useState(false);
   const [showAdditionalInfo, setShowAdditionalInfo] = useState(false);
-  const id = params.uuid
-  const products = useSelector((state) => state.allProducts.allProducts);
+  const id = params.id
   const product = products.find((prod) => prod.id === parseInt(id, 10));
-  const images = [product.image, "/samples/1.jpg", "/samples/2.jpg", "/samples/3.jpg", "/samples/4.jpg"]
+  const images = [product?.image, "/samples/1.jpg", "/samples/2.jpg", "/samples/3.jpg", "/samples/4.jpg"]
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    setTimeout(() => {
-      setSkeleton(false)
-    }, 3000);
-  }, []);
+
+    const fetchProducts = async (url) => {
+      try {
+        const response = await fetch(url);
+        if (!response.ok) {
+          throw new Error('Network response was not ok.');
+        }
+        const data = await response.json();
+        setProducts(data);
+        setTimeout(() => {
+          setSkeleton(false);
+        }, 3000);
+      } catch (error) {
+        console.error('Error fetching products:', error);
+      }
+    };
+
+    if (id >= 1 && id <= 20) {
+      fetchProducts("http://localhost:3001/api/products/1");
+    } else {
+      fetchProducts("http://localhost:3001/api/products/2");
+    }
+  }, [id]);
 
   const toggleTechnicalDetails = () => {
     setShowTechnicalDetails(!showTechnicalDetails);
@@ -384,7 +403,7 @@ function Page() {
           : <Skeleton animation="wave" variant='rectangular' className='rounded-xl w-4/5 mx-auto' height={500} />}
       </div>
       <PageTitle text1="Related Products" />
-      <ProductsCycle2 />
+      <ProductsCycle />
     </>
   );
 }

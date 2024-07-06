@@ -9,7 +9,7 @@ app.use(cors());
 app.set('views', 'backend/views/');
 app.set('view engine', 'ejs');
 
-const MONGODB_URI = 'mongodb://localhost:27017/nextron-electronics-store'; // Update with your MongoDB URI
+const MONGODB_URI = 'mongodb://localhost:27017/nextron-electronics-store';
 
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('MongoDB connected'))

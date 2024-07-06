@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import AirPodsBanner from "../../Additional/AirPodsBanner";
 import ProductsCycle from "../../Additional/ProductsCycle";
-import ProductsCycle2 from "../../Additional/ProductsCycle2";
 import ImageBanner from "../../Additional/ImageBanner";
 import PageTitle from "../../Additional/PageTitle";
 
@@ -32,7 +31,7 @@ function page() {
 
       <PageTitle text1="Top deals on smartphones" />
 
-      <ProductsCycle2 />
+      <ProductsCycle />
     </div>
   );
 }

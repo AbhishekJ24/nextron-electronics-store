@@ -57,7 +57,7 @@ const router = createBrowserRouter([
         errorElement: <ErrorPage />
       },
       {
-        path: "/:productName/:uuid",
+        path: "/:productName/:id",
         element: <ProductViewPage />,
         errorElement: <ErrorPage />,
       },

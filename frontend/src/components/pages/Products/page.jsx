@@ -3,11 +3,8 @@ import PageTitle from "../../Additional/PageTitle";
 import ProductCard from "../../Additional/ProductCard";
 import CreditCard from "../../Additional/CreditCard";
 import Loader from "../../Additional/Loader";
-import { useDispatch } from "react-redux";
-import { setProducts } from "../../../redux/productsStore/productsReducer";
 
 function Page() {
-  const dispatch = useDispatch();
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -18,10 +15,9 @@ function Page() {
   useEffect(() => {
     async function getProducts() {
       try {
-        const response = await fetch('https://nextron-electronics-store.onrender.com/api/products');
+        const response = await fetch('http://localhost:3001/api/products/2');
         const products = await response.json();
         setData(products);
-        dispatch(setProducts(products));
       } catch (error) {
         console.error('Error fetching products:', error);
       } finally {
@@ -29,7 +25,7 @@ function Page() {
       }
     }
     getProducts();
-  }, [dispatch]);
+  }, []);
 
   return (
     <>
@@ -45,7 +41,8 @@ function Page() {
             return (
               <ProductCard
                 key={product.id}
-                img_url={product.image} // Assuming the image field is directly available
+                prodId={product.id}
+                img_url={product?.image}
                 img_alt_text="not-found"
                 product_name={product.title}
                 product_price={`${product.price}`}

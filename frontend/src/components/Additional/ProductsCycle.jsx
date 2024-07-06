@@ -11,7 +11,7 @@ function ProductsCycle() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch('https://fakestoreapi.com/products');
+        const response = await fetch('http://localhost:3001/api/products/1');
         const data = await response.json();
         setProducts(data);
       } catch (error) {
@@ -69,8 +69,9 @@ function ProductsCycle() {
       {products.slice(offset, offset + productsPerPage).map((product) => (
           <ProductCard
             key={product.id}
+            prodId={product.id}
             img_url={product.image}
-            img_alt_text="not-found"
+            img_alt_text={product.title}
             product_name={product.title}
             product_price={`${product.price}`}
             show={false}

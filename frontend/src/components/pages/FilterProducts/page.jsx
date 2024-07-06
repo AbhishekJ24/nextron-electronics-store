@@ -4,8 +4,6 @@ import PageTitle from '../../Additional/PageTitle';
 import Loader from '../../Additional/Loader';
 import ProductCard from '../../Additional/ProductCard';
 import { useParams } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { setProducts } from "../../../redux/productsStore/productsReducer";
 
 async function fetchProducts(query) {
     let response = await fetch(`https://dummyjson.com/products/search?q=${query}`);
@@ -14,7 +12,6 @@ async function fetchProducts(query) {
 }
 
 function page() {
-    const dispatch = useDispatch()
 
     const params = useParams()
     const [isLoading, setIsLoading] = useState(true);
@@ -29,11 +26,10 @@ function page() {
             setIsLoading(true)
             const products = await fetchProducts(params.query);
             setData(products);
-            dispatch(setProducts(data))
             setIsLoading(false);
         }
         getProducts();
-    }, [dispatch, params]);
+    }, [params]);
 
     return (
         <>
