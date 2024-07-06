@@ -1,23 +1,16 @@
-const express = require('express');
-const Product = require('../model/productModel');
+import express from 'express';
+import Product from '../model/productModel.js';
+
 const router = express.Router();
 
 router.get('/products/1', async (req, res) => {
-  try {
-    const products = await Product.find({ id: { $gte: 1, $lte: 20 } });
-    res.json(products);
-  } catch (error) {
-    res.status(500).send('Error fetching products');
-  }
+  const products = await Product.find({ id: { $gte: 1, $lte: 20 } });
+  res.json(products);
 });
 
 router.get('/products/2', async (req, res) => {
-  try {
-    const products = await Product.find({ id: { $gte: 318 } });
-    res.json(products);
-  } catch (error) {
-    res.status(500).send('Error fetching products');
-  }
+  const products = await Product.find({ id: { $gte: 318 } });
+  res.json(products);
 });
 
 router.get('/users', (req, res) => {
@@ -86,4 +79,4 @@ router.get('/users', (req, res) => {
   ]);
 });
 
-module.exports = router;
+export default router;
