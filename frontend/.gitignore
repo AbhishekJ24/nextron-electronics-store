@@ -38,3 +38,6 @@ temp/
 # Lint and test files
 coverage/
 *.log
+
+# payment gateway
+src/components/pages/PaymentCheckout
