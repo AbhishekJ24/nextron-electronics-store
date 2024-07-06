@@ -25,7 +25,7 @@ function Navbar() {
 
   useEffect(() => {
     const fetchUsers = async () => {
-      const response = await fetch("https://nextron-electronics-store.onrender.com/users", {
+      const response = await fetch("https://nextron-electronics-store.onrender.com/api/users", {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
