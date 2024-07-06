@@ -1,1 +1,1 @@
-{ "version": 2, "rewrites": [{ "source": "/(.*)", "destination": "/nextron-electronics-store/backend" }] }
+{ "version": 2, "rewrites": [{ "source": "/(.*)", "destination": "/backend" }] }
