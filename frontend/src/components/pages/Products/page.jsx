@@ -6,15 +6,8 @@ import Loader from "../../Additional/Loader";
 import { useDispatch } from "react-redux";
 import { setProducts } from "../../../redux/productsStore/productsReducer";
 
-async function fetchProducts() {
-  let response = await fetch("https://api.escuelajs.co/api/v1/products");
-  // let response = await fetch("https://fakestoreapi.com/products");
-  let jresp = await response.json();
-  return jresp;
-}
-
-function page() {
-  const dispatch = useDispatch()
+function Page() {
+  const dispatch = useDispatch();
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -24,10 +17,16 @@ function page() {
 
   useEffect(() => {
     async function getProducts() {
-      const products = await fetchProducts();
-      setData(products);
-      dispatch(setProducts(products))
-      setIsLoading(false);
+      try {
+        const response = await fetch('https://nextron-electronics-store.onrender.com/api/products');
+        const products = await response.json();
+        setData(products);
+        dispatch(setProducts(products));
+      } catch (error) {
+        console.error('Error fetching products:', error);
+      } finally {
+        setIsLoading(false);
+      }
     }
     getProducts();
   }, [dispatch]);
@@ -46,7 +45,7 @@ function page() {
             return (
               <ProductCard
                 key={product.id}
-                img_url={product.images[0]}
+                img_url={product.image} // Assuming the image field is directly available
                 img_alt_text="not-found"
                 product_name={product.title}
                 product_price={`${product.price}`}
@@ -59,4 +58,4 @@ function page() {
   );
 }
 
-export default page;
+export default Page;

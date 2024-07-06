@@ -1,10 +1,19 @@
-import express from "express";
-import cors from "cors";
+// server.js
+const express = require('express');
+const cors = require('cors');
+const mongoose = require('mongoose');
+const apiRoutes = require('./routes/api');
 
 const app = express();
 app.use(cors());
-app.set('views','backend/views/')
+app.set('views', 'backend/views/');
 app.set('view engine', 'ejs');
+
+const MONGODB_URI = 'mongodb://localhost:27017/nextron-electronics-store'; // Update with your MongoDB URI
+
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log('MongoDB connected'))
+  .catch(err => console.error('MongoDB connection error:', err));
 
 const port = process.env.PORT || 3001;
 
@@ -12,71 +21,7 @@ app.get('/', (req, res) => {
     res.render('home');
 });
 
-app.get('/users', (req, res) => {
-    res.setHeader('Content-Type', 'application/json');
-    res.json([
-        {
-            "username": "scarlett_johansson",
-            "password": "blackwidow27",
-            "gender": "female",
-            "address": "123 Marvel Ave, Los Angeles"
-        },
-        {
-            "username": "jennifer_lawrence",
-            "password": "mystique2023",
-            "gender": "female",
-            "address": "456 X-Men Blvd, Hollywood"
-        },
-        {
-            "username": "margot_robbie",
-            "password": "harleyquinn87",
-            "gender": "female",
-            "address": "789 Gotham St, Malibu"
-        },
-        {
-            "username": "emma_stone",
-            "password": "oscarwinner",
-            "gender": "female",
-            "address": "101 Academy Rd, Beverly Hills"
-        },
-        {
-            "username": "leonardo_dicaprio",
-            "password": "inception10",
-            "gender": "male",
-            "address": "222 Dream Ave, Hollywood"
-        },
-        {
-            "username": "brad_pitt",
-            "password": "fightclub99",
-            "gender": "male",
-            "address": "333 Angelina Ln, Santa Monica"
-        },
-        {
-            "username": "gal_gadot",
-            "password": "wonderwoman84",
-            "gender": "female",
-            "address": "444 Themyscira Dr, Pacific Palisades"
-        },
-        {
-            "username": "robert_downey_jr",
-            "password": "ironman08",
-            "gender": "male",
-            "address": "555 Stark Tower, Malibu"
-        },
-        {
-            "username": "meryl_streep",
-            "password": "queenofcinema",
-            "gender": "female",
-            "address": "666 Oscar Ln, Beverly Hills"
-        },
-        {
-            "username": "angelina_jolie",
-            "password": "tombraider01",
-            "gender": "female",
-            "address": "777 Raider Rd, Westwood"
-        }
-    ]);
-});
+app.use('/api', apiRoutes);
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`);
