@@ -13,6 +13,7 @@
     "@emotion/styled": "^11.11.5",
     "@mui/material": "^5.16.0",
     "@reduxjs/toolkit": "^2.2.5",
+    "email-js": "^2.0.3",
     "formik": "^2.4.6",
     "framer-motion": "^11.2.10",
     "latest": "^0.2.0",

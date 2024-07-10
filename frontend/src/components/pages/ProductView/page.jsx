@@ -65,10 +65,6 @@ function Page() {
     setIdx(i)
   }
 
-  if (!product) {
-    return <div>Product not found</div>;
-  }
-
   return (
     <>
       <div className="bg-slate-200 w-11/12 mx-auto max-sm:my-5 max-md:my-8 my-10 p-12 rounded-2xl flex flex-col gap-20">
