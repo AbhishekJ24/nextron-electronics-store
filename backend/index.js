@@ -10,7 +10,9 @@ app.use(cors());
 app.set('views', path.join(path.dirname(fileURLToPath(import.meta.url)), 'views'));
 app.set('view engine', 'ejs');
 
-await mongoose.connect('mongodb://localhost:27017/nextron-electronics-store')
+const uri = "mongodb+srv://abhishekj24:root12340000@nextron-electronics-sto.583vbys.mongodb.net/?retryWrites=true&w=majority&appName=Nextron-Electronics-Store/test"
+
+await mongoose.connect(uri)
 
 const port = process.env.PORT || 3001;
 

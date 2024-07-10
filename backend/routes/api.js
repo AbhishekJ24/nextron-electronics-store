@@ -9,7 +9,7 @@ router.get('/products/1', async (req, res) => {
 });
 
 router.get('/products/2', async (req, res) => {
-  const products = await Product.find({ id: { $gte: 318 } });
+  const products = await Product.find({ id: { $gte: 21, $lte: 40 } });
   res.json(products);
 });
 
