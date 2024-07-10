@@ -37,9 +37,9 @@ function Page() {
     };
 
     if (id >= 1 && id <= 20) {
-      fetchProducts("http://localhost:3001/api/products/1");
+      fetchProducts("https://nextron-electronics-store.onrender.com/api/products/1");
     } else {
-      fetchProducts("http://localhost:3001/api/products/2");
+      fetchProducts("https://nextron-electronics-store.onrender.com/api/products/2");
     }
   }, [id]);
 

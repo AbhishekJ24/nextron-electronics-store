@@ -15,7 +15,7 @@ function Page() {
   useEffect(() => {
     async function getProducts() {
       try {
-        const response = await fetch('http://localhost:3001/api/products/2');
+        const response = await fetch('https://nextron-electronics-store.onrender.com/api/products/2');
         const products = await response.json();
         setData(products);
       } catch (error) {
@@ -42,7 +42,7 @@ function Page() {
               <ProductCard
                 key={product.id}
                 prodId={product.id}
-                img_url={product?.image}
+                img_url={product.image}
                 img_alt_text="not-found"
                 product_name={product.title}
                 product_price={`${product.price}`}
