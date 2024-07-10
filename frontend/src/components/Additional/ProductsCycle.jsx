@@ -64,7 +64,7 @@ function ProductsCycle() {
   };
 
   return (
-    <div className="flex gap-10 justify-center items-center py-20 min-h-[30rem]">
+    <div className="flex gap-10 justify-center items-center py-20 min-w-full px-5 min-h-[30rem]">
       <button onClick={handlePrevClick} disabled={offset === 0}> <FaChevronLeft /> </button>
       {products.slice(offset, offset + productsPerPage).map((product) => (
           <ProductCard
