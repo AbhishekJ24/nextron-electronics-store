@@ -7,12 +7,15 @@ import { addProduct } from "../../redux/itemsTracker/productsSlice";
 import MyAlertButton from "./MyAlertButton";
 import slugify from "slugify";
 import Loader from "../Additional/Loader";
+import { MdOutlineFavorite } from "react-icons/md";
 
 function ProductCard({ prodId, img_url, img_alt_text, product_name, product_price, show = true, bg_color = "bg-slate-200" }) {
   const [showAlert, setShowAlert] = useState(false);
+  const [showAlertFavorite, setShowAlertFavorite] = useState(false);
   const [it, setIt] = useState(1);
   const [removeDisable, setRemoveDisabled] = useState(false);
   const [addDisable, setAddDisabled] = useState(false);
+  const [favoriteBtn, setFavoriteBtn] = useState(false);
 
   const [cartDelayWhite, setCartDelayWhite] = useState(false)
 
@@ -30,7 +33,7 @@ function ProductCard({ prodId, img_url, img_alt_text, product_name, product_pric
 
     setTimeout(() => {
       setShowAlert(true)
-    }, 2000);
+    }, 1800);
 
     setTimeout(() => {
       setShowAlert(false)
@@ -47,6 +50,27 @@ function ProductCard({ prodId, img_url, img_alt_text, product_name, product_pric
     dispatch(addProduct(newProduct));
   };
 
+  const enterProduct = () => {
+    setFavoriteBtn(true)
+  }
+
+  const leaveProduct = () => {
+    setFavoriteBtn(false)
+  }
+
+  const handleFavoriteButtonAlert = () => {
+    setCartDelayWhite(true)
+    setTimeout(() => {
+      setCartDelayWhite(false)
+    }, 400);
+    setTimeout(() => {
+      setShowAlertFavorite(true)
+    }, 600);
+    setTimeout(() => {
+      setShowAlertFavorite(false)
+    }, 2500);
+  }
+
   const dispatch = useDispatch();
   return (
     <>
@@ -55,7 +79,7 @@ function ProductCard({ prodId, img_url, img_alt_text, product_name, product_pric
           <Loader /> <div className="bg-white opacity-75 w-full h-full fixed top-0 left-0 z-40"></div>
         </>
       }
-      <div className={`${bg_color} rounded-2xl m-auto px-2 shadow-xl product-card text-xs flex flex-col justify-evenly`}>
+      <div onMouseEnter={enterProduct} onMouseLeave={leaveProduct} className={`${bg_color} hover:bg-slate-200 relative rounded-2xl m-auto px-2 shadow-xl product-card text-xs flex flex-col justify-evenly`}>
         <div>
           <div className="h-44 flex items-center justify-center">
             <img
@@ -73,6 +97,10 @@ function ProductCard({ prodId, img_url, img_alt_text, product_name, product_pric
             ${product_price}
           </div>
         </div>
+        {favoriteBtn && <button id="fav" onClick={handleFavoriteButtonAlert} className="absolute top-8 right-8">
+          <img src="wishlist.svg" className="h-8 transition-all hover:ease-in" />
+        </button>
+        }
         {show &&
           <div>
             <div className="flex justify-center gap-5 mb-4">
@@ -108,6 +136,9 @@ function ProductCard({ prodId, img_url, img_alt_text, product_name, product_pric
         {showAlert && (
           <MyAlertButton text="Items added to cart successfully" />
         )}
+        {showAlertFavorite &&
+          <MyAlertButton text="Item added to wishlist successfully" />
+        }
       </div>
     </>
   );

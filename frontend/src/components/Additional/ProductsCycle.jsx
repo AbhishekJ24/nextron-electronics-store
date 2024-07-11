@@ -11,7 +11,7 @@ function ProductsCycle() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch("https://nextron-electronics-store.onrender.com/api/products");
+        const response = await fetch("https://nextron-electronics-store.onrender.com/api/products?limit=100");
         const {products} = await response.json();
         setProducts(products);
       } catch (error) {
@@ -49,7 +49,7 @@ function ProductsCycle() {
       setOffset((prevOffset) =>
         prevOffset >= products.length - productsPerPage ? 0 : prevOffset + 1
       );
-    }, 2500);
+    }, 3500);
     return () => clearInterval(interval);
   }, [products.length, productsPerPage]);
 
