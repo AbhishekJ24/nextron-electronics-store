@@ -22,7 +22,7 @@ function ContactForm() {
   const sendToDatabase = (values) => {
     const postData = async () => {
       try {
-        const response = await fetch("http://localhost:3001/api/contactUs", {
+        await fetch("https://nextron-electronics-store.onrender.com/api/contactUs", {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
