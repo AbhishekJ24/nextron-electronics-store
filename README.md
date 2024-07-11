@@ -11,13 +11,11 @@ Welcome to **Nextron Electronics Store**, your one-stop destination for all thin
 Nextron Electronics Store is designed to provide a user-friendly interface for browsing, searching, and purchasing electronics. It utilizes state-of-the-art technologies to deliver a high-performance and engaging shopping experience.
 
 ## Features
-- **User Authentication:** Secure login and registration system.
-- **Product Listing:** Dynamic product listings fetched from multiple APIs.
+- **Product Listing:** Dynamic product listings fetched from multiple API endpoints.
 - **Search & Filter:** Advanced search and filtering options based on user queries.
 - **Shopping Cart:** Efficient cart management using Redux Toolkit.
-- **Payment Simulation:** Integration with XYZ Payment Gateway for payment simulations.
+- **Payment Simulation:** Integration with Razorpay's Payment Gateway for payment simulations.
 - **Shipping Pages:** Detailed shipping information and order tracking.
-- **Immersive UI:** Smooth animations and transitions with Framer Motion
 - **Responsive Design:** Mobile-first approach ensuring compatibility across all devices.
 
 ## Tech Stack
@@ -32,6 +30,8 @@ Nextron Electronics Store is designed to provide a user-friendly interface for b
 - **UUID:** Unique identifier generation.
 - **React-Icons:** Comprehensive icon library.
 - **Slugify:** URL slug generation.
+- **Express.js:** Server for API Endpoints.
+- **MongoDB** MongoDB Atlas utilized for database for user and products data storage across a secured cloud service.
 
 ## Getting Started
 
@@ -40,32 +40,40 @@ To get a local copy up and running, follow these simple steps:
 ### Prerequisites
 
 - node
-- npm or yarn
+- npm
 
 ### Installation
 
 1. Clone the repository
    ```git clone https://github.com/AbhishekJ24/nextron-electronics-store.git```
 
-2. Navigate to the project directory:
+2. Navigate to the project client directory:
    ```cd nextron-electronics-store/frontend/```
 
 3. Install dependencies:
    
    ```npm i```
-   or
-   ```yarn i```
 
 4. Running the application:
 
    ```npm run dev```
-   or
-   ```yarn dev```
 
-6. Access ```http://localhost:5173``` on your browser
+5. Now navigate to the project server directory:
+   ```cd nextron-electronics-store/backend/```
+
+6. Install dependencies:
+   
+   ```npm i```
+
+7. Running the application:
+
+   ```node index.js```
+
+8. Access ```http://localhost:5173``` on your browser for the frontend
+9. Access ```http://localhost:3001``` on your browser for the backend
 
 ## Usage
-Explore the wide range of electronics, use the search bar to find specific products, add items to your cart, and proceed to simulate a payment using the XYZ Payment Gateway. Enjoy the smooth and intuitive user experience designed with a focus on UX best practices.
+Explore the wide range of electronics, use the search bar to find specific products, add items to your cart, and proceed to simulate a payment using the Razorpay's Payment Gateway. Enjoy the smooth and intuitive user experience designed with a focus on UX best practices.
 
 ## Contributions
 Contributions are welcome! If you have suggestions for improvements or find any issues, feel free to create a pull request or open an issue on GitHub.
