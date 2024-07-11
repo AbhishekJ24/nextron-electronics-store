@@ -30,17 +30,12 @@ function Page() {
         setProducts(data);
         setTimeout(() => {
           setSkeleton(false);
-        }, 3000);
+        }, 1000);
       } catch (error) {
         console.error('Error fetching products:', error);
       }
     };
-
-    if (id >= 1 && id <= 20) {
-      fetchProducts("https://nextron-electronics-store.onrender.com/api/products/1");
-    } else {
-      fetchProducts("https://nextron-electronics-store.onrender.com/api/products/2");
-    }
+    fetchProducts("https://nextron-electronics-store.onrender.com/api/products/");
   }, [id]);
 
   const toggleTechnicalDetails = () => {

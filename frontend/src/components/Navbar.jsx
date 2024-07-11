@@ -123,12 +123,14 @@ function Navbar() {
               <>
                 <button
                   onClick={loginSimulate}
+                  disabled={users.length==0}
                   className="transition-all hover:ease-in hover:bg-slate-400 rounded-md text-black bg-white px-3 py-2"
                 >
                   Log In
                 </button>
                 <button
                   onClick={loginSimulate}
+                  disabled={users.length==0}
                   className="transition-all hover:ease-in hover:bg-slate-800 rounded-md text-white bg-black px-3 py-2"
                 >
                   Sign Up
