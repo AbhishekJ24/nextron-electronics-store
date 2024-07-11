@@ -29,7 +29,12 @@ function ContactForm() {
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify(values),
+          body: JSON.stringify({
+            name: values?.name,
+            email: values?.email,
+            subject: values?.subject,
+            message: values?.message
+          }),
         })
         console.log(await response.json())
       }
