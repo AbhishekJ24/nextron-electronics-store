@@ -34,7 +34,7 @@ router.post('/contactUs', async (req, res) => {
     await userQuery.save();
     res.status(201).json(userQuery);
   } catch (err) {
-    es.status(500).json({ error: 'Error posting data to database' });
+    res.status(500).json({ error: 'Error posting data to database' });
   }
 })
 
