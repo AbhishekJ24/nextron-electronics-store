@@ -4,9 +4,11 @@ import mongoose from 'mongoose';
 import { fileURLToPath } from 'url';
 import * as path from 'path';
 import apiRoutes from './routes/api.js';
+import bodyParser from "body-parser";
 
 const app = express();
 app.use(cors());
+app.use(bodyParser.json());
 
 app.set('views', path.join(path.dirname(fileURLToPath(import.meta.url)), 'views'));
 app.set('view engine', 'ejs');

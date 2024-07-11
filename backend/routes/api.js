@@ -24,18 +24,17 @@ router.get('/products', async (req, res) => {
 
 router.post('/contactUs', async (req, res) => {
   try {
-    const { name, subject, email, message } = req.query
+    const { name, subject, email, message } = req.body
     const userQuery = new Contact({
       name,
       subject,
       email,
-      message,
-      time: Date.now().toString()
+      message
     })
     await userQuery.save();
     res.status(201).json(userQuery);
   } catch (err) {
-    res.status(500).json({ error: 'Error posting data to database' });
+    res.status(500).json({ error: 'Error posting data to on server side' });
   }
 })
 
