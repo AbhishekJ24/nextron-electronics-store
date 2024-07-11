@@ -23,7 +23,8 @@ function ContactForm() {
   const sendToDatabase = (values) => {
     const postData = async () => {
       try {
-        const response = await fetch("https://nextron-electronics-store.onrender.com/contactUs", {
+    
+        const response = await fetch("https://nextron-electronics-store.onrender.com/api/contactUs", {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -40,6 +41,7 @@ function ContactForm() {
   }
 
   const onSubmit = (values) => {
+    console.log(values)
     sendToDatabase(values)
   };
 
