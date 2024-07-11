@@ -12,8 +12,8 @@ function ProductsCycle() {
     const fetchProducts = async () => {
       try {
         const response = await fetch("https://nextron-electronics-store.onrender.com/api/products");
-        const data = await response.json();
-        setProducts(data);
+        const {products} = await response.json();
+        setProducts(products);
       } catch (error) {
         console.error('Error fetching products:', error);
       }
