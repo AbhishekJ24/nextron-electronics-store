@@ -8,7 +8,7 @@ function PaginationComponent({ currentPage, onPageChange, totalPages }) {
       page={currentPage}
       onChange={(event, page) => onPageChange(page)}
       color="primary"
-      size="large"
+      size="medium"
     />
   );
 }
