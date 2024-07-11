@@ -18,11 +18,31 @@ const validationSchema = Yup.object({
   message: Yup.string(),
 });
 
-const onSubmit = (values) => {
-  console.log(values);
-};
 
 function ContactForm() {
+  const sendToDatabase = (values) => {
+    const postData = async () => {
+      try {
+        const response = await fetch("https://nextron-electronics-store.onrender.com/contactUs", {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(values),
+        })
+        console.log(await response.json())
+      }
+      catch (err) {
+        console.error('Error posting data to database: ', err);
+      }
+    }
+    postData();
+  }
+
+  const onSubmit = (values) => {
+    sendToDatabase(values)
+  };
+
   return (
     <>
       <Formik

@@ -1,5 +1,6 @@
 import express from 'express';
 import Product from '../model/productModel.js';
+import Contact from '../model/contactModel.js';
 
 const router = express.Router();
 
@@ -20,6 +21,22 @@ router.get('/products', async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 });
+
+router.post('/contactUs', async (req, res) => {
+  try {
+    const { name, subject, email, message } = req.query
+    const userQuery = new Contact({
+      name,
+      subject,
+      email,
+      message
+    })
+    await userQuery.save();
+    res.status(201).json(userQuery);
+  } catch (err) {
+    es.status(500).json({ error: 'Error posting data to database' });
+  }
+})
 
 router.get('/users', (req, res) => {
   res.setHeader('Content-Type', 'application/json');
