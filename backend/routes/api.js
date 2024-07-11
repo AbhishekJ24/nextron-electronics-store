@@ -26,10 +26,11 @@ router.post('/contactUs', async (req, res) => {
   try {
     const { name, subject, email, message } = req.query
     const userQuery = new Contact({
-      name: name.toString(),
-      subject: subject.toString(),
-      email: email.toString(),
-      message: message.toString()
+      name,
+      subject,
+      email,
+      message,
+      time: Date.now().toString()
     })
     await userQuery.save();
     res.status(201).json(userQuery);
