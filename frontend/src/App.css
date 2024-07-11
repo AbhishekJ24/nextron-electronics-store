@@ -33,7 +33,6 @@ body {
 .loader {
   border: 6px solid #b3d8ff;
   border-top: 6px solid #001b37;
-  border-radius: 50%;
   animation: spin 2s linear infinite;
 }
 
