@@ -26,8 +26,8 @@ function Page() {
         if (!response.ok) {
           throw new Error('Network response was not ok.');
         }
-        const data = await response.json();
-        setProducts(data);
+        const {products} = await response.json();
+        setProducts(products);
         setTimeout(() => {
           setSkeleton(false);
         }, 1000);
