@@ -15,7 +15,7 @@ function Page() {
   useEffect(() => {
     async function getProducts() {
       try {
-        const response = await fetch('https://nextron-electronics-store.onrender.com/api/products/2');
+        const response = await fetch('https://nextron-electronics-store.onrender.com/api/products');
         const products = await response.json();
         setData(products);
       } catch (error) {
