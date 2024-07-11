@@ -8,36 +8,18 @@ router.get('/products', async (req, res) => {
     const page = parseInt(req.query.page) || 1;
     const limit = parseInt(req.query.limit) || 6;
     const skip = (page - 1) * limit;
-
     const query = {};
     if (req.query.minId && req.query.maxId) {
       query.id = { $gte: parseInt(req.query.minId), $lte: parseInt(req.query.maxId) };
     }
-
     const totalProducts = await Product.countDocuments(query);
     const totalPages = Math.ceil(totalProducts / limit);
-
     const products = await Product.find(query).skip(skip).limit(limit);
-
     res.json({ products, totalPages });
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
 });
-
-
-router.get('/products/range', async (req, res) => {
-  try {
-    const minId = parseInt(req.query.minId) || 1;
-    const maxId = parseInt(req.query.maxId) || 20;
-
-    const products = await Product.find({ id: { $gte: minId, $lte: maxId } });
-    res.json(products);
-  } catch (err) {
-    res.status(500).json({ message: err.message });
-  }
-});
-
 
 router.get('/users', (req, res) => {
   res.setHeader('Content-Type', 'application/json');
