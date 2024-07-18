@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
 import PageTitle from "../../Additional/PageTitle";
 import ProductsCycle from "../../Additional/ProductsCycle";
 import { HiChevronRight } from "react-icons/hi";
@@ -26,7 +25,7 @@ function Page() {
         if (!response.ok) {
           throw new Error('Network response was not ok.');
         }
-        const {products} = await response.json();
+        const { products } = await response.json();
         setProducts(products);
         setTimeout(() => {
           setSkeleton(false);
@@ -35,7 +34,7 @@ function Page() {
         console.error('Error fetching products:', error);
       }
     };
-    fetchProducts("https://nextron-electronics-store.onrender.com/api/products/");
+    fetchProducts("https://nextron-electronics-store.onrender.com/api/products?limit=100");
   }, [id]);
 
   const toggleTechnicalDetails = () => {

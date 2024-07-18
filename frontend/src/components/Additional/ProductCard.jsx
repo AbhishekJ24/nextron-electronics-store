@@ -7,7 +7,6 @@ import { addProduct } from "../../redux/itemsTracker/productsSlice";
 import MyAlertButton from "./MyAlertButton";
 import slugify from "slugify";
 import Loader from "../Additional/Loader";
-import { MdOutlineFavorite } from "react-icons/md";
 
 function ProductCard({ prodId, img_url, img_alt_text, product_name, product_price, show = true, bg_color = "bg-slate-200" }) {
   const [showAlert, setShowAlert] = useState(false);
@@ -15,8 +14,7 @@ function ProductCard({ prodId, img_url, img_alt_text, product_name, product_pric
   const [it, setIt] = useState(1);
   const [removeDisable, setRemoveDisabled] = useState(false);
   const [addDisable, setAddDisabled] = useState(false);
-  const [favoriteBtn, setFavoriteBtn] = useState(false);
-
+  const [favBtnSrc, setFavBtnSrc] = useState("favorite-false.png")
   const [cartDelayWhite, setCartDelayWhite] = useState(false)
 
   useEffect(() => {
@@ -50,22 +48,15 @@ function ProductCard({ prodId, img_url, img_alt_text, product_name, product_pric
     dispatch(addProduct(newProduct));
   };
 
-  const enterProduct = () => {
-    setFavoriteBtn(true)
-  }
-
-  const leaveProduct = () => {
-    setFavoriteBtn(false)
-  }
-
   const handleFavoriteButtonAlert = () => {
+    setFavBtnSrc(favBtnSrc === "favorite-false.png" ? "favorite-true.png" : "favorite-false.png")
     setCartDelayWhite(true)
     setTimeout(() => {
       setCartDelayWhite(false)
-    }, 400);
+    }, 500);
     setTimeout(() => {
       setShowAlertFavorite(true)
-    }, 600);
+    }, 700);
     setTimeout(() => {
       setShowAlertFavorite(false)
     }, 2500);
@@ -79,7 +70,7 @@ function ProductCard({ prodId, img_url, img_alt_text, product_name, product_pric
           <Loader /> <div className="bg-white opacity-75 w-full h-full fixed top-0 left-0 z-40"></div>
         </>
       }
-      <div onMouseEnter={enterProduct} onMouseLeave={leaveProduct} className={`${bg_color} hover:bg-slate-200 relative rounded-2xl m-auto px-2 shadow-xl product-card text-xs flex flex-col justify-evenly`}>
+      <div className={`${bg_color} hover:bg-slate-200 relative rounded-2xl m-auto px-2 shadow-xl product-card text-xs flex flex-col justify-evenly`}>
         <div>
           <div className="h-44 flex items-center justify-center">
             <img
@@ -89,7 +80,7 @@ function ProductCard({ prodId, img_url, img_alt_text, product_name, product_pric
             />
           </div>
           <div className="m-2 text-sm text-center">
-            <Link className="transition-all hover:ease-linear hover:underline" to={`/${slugify(product_name, { lower: true })}/${prodId}`}>
+            <Link className="transition-all ease-in hover:underline" to={`/${slugify(product_name, { lower: true })}/${prodId}`}>
               {product_name}
             </Link>
           </div>
@@ -97,10 +88,9 @@ function ProductCard({ prodId, img_url, img_alt_text, product_name, product_pric
             ${product_price}
           </div>
         </div>
-        {favoriteBtn && <button id="fav" onClick={handleFavoriteButtonAlert} className="absolute top-8 right-8">
-          <img src="wishlist.svg" className="h-8 transition-all hover:ease-in" />
+        <button id="fav" onClick={handleFavoriteButtonAlert} className="absolute top-8 right-8">
+          <img src={favBtnSrc} className="h-8 transition-all hover:ease-in" />
         </button>
-        }
         {show &&
           <div>
             <div className="flex justify-center gap-5 mb-4">

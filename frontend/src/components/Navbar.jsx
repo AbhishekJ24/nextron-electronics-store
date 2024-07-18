@@ -8,6 +8,7 @@ import { SlArrowLeft } from "react-icons/sl";
 import { SlArrowRight } from "react-icons/sl";
 import { useSelector } from "react-redux";
 import ItemInHoverCart from "./Additional/ItemInHoverCart";
+import WishlistIcon from "./Additional/WishlistIcon";
 
 function Navbar() {
   const products = useSelector((state) => state.products.products);
@@ -88,6 +89,7 @@ function Navbar() {
             <NavSearchForm />
           </div>
           <div className="flex items-center gap-5 font-semibold">
+            <WishlistIcon />
             <div
               className="relative"
               onMouseEnter={handleCartHoverIn}
@@ -123,14 +125,14 @@ function Navbar() {
               <>
                 <button
                   onClick={loginSimulate}
-                  disabled={users.length==0}
+                  disabled={users.length == 0}
                   className="transition-all hover:ease-in hover:bg-slate-400 rounded-md text-black bg-white px-3 py-2"
                 >
                   Log In
                 </button>
                 <button
                   onClick={loginSimulate}
-                  disabled={users.length==0}
+                  disabled={users.length == 0}
                   className="transition-all hover:ease-in hover:bg-slate-800 rounded-md text-white bg-black px-3 py-2"
                 >
                   Sign Up
@@ -157,16 +159,16 @@ function Navbar() {
           </div>
         </div>
         <ul className="flex gap-12 items-center">
-          <li className="hover:bg-slate-600 pb-5 px-4 pt-4">
+          <li className="smooth pb-5 px-4 pt-4">
             <Link to="/">Home</Link>
           </li>
-          <li className="hover:bg-slate-600 pb-5 px-4 pt-4">
+          <li className="smooth pb-5 px-4 pt-4">
             <Link to="/trending">Trending</Link>
           </li>
-          <li className="hover:bg-slate-600 pb-5 px-4 pt-4">
+          <li className="smooth pb-5 px-4 pt-4">
             <Link to="/products">Products</Link>
           </li>
-          <li className="hover:bg-slate-600 pb-5 px-4 py-4">
+          <li className="smooth pb-5 px-4 py-4">
             <Link to="/contactus">Contact Us</Link>
           </li>
         </ul>

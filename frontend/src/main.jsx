@@ -12,6 +12,7 @@ import TrendingPage from "./components/pages/Trending/page.jsx";
 import ProductsPage from "./components/pages/Products/page.jsx";
 import ContactPage from "./components/pages/ContactUs/page.jsx";
 import CartPage from "./components/pages/Cart/page.jsx";
+import WishlistPage from "./components/pages/Wishlist/page.jsx";
 import FilterProductPage from "./components/pages/FilterProducts/page.jsx";
 import ProductViewPage from "./components/pages/ProductView/page.jsx";
 import PaymentCheckoutPage from "./components/pages/PaymentCheckout/page.jsx";
@@ -50,6 +51,11 @@ const router = createBrowserRouter([
         path: "/account",
         element: <ErrorPage />,
         errorElement: <ErrorPage />,
+      },
+      {
+        path: "/wishlist",
+        element: <WishlistPage />,
+        errorElement: <ErrorPage />
       },
       {
         path: "/products/:query",
