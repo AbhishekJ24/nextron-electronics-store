@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { addItems } from "../../redux/itemsTracker/cartItemsReducer";
-import { addItemsByNumber } from "../../redux/itemsTracker/cartItemsReducer";
+import { addItems, addItemsByNumber } from "../../redux/itemsTracker/cartItemsReducer";
 import { addProduct } from "../../redux/itemsTracker/productsSlice";
+import { addWishlist, deleteWishlist } from "../../redux/wishlistTracker/wishlistReducer";
 import MyAlertButton from "./MyAlertButton";
 import slugify from "slugify";
 import Loader from "../Additional/Loader";
@@ -14,8 +14,10 @@ function ProductCard({ prodId, img_url, img_alt_text, product_name, product_pric
   const [it, setIt] = useState(1);
   const [removeDisable, setRemoveDisabled] = useState(false);
   const [addDisable, setAddDisabled] = useState(false);
-  const [favBtnSrc, setFavBtnSrc] = useState("favorite-false.png")
-  const [cartDelayWhite, setCartDelayWhite] = useState(false)
+  const [favBtnSrc, setFavBtnSrc] = useState("favorite-false.png");
+  const [cartDelayWhite, setCartDelayWhite] = useState(false);
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     setRemoveDisabled(it === 1);
@@ -23,18 +25,18 @@ function ProductCard({ prodId, img_url, img_alt_text, product_name, product_pric
   }, [it]);
 
   const handleAddToCart = () => {
-    setCartDelayWhite(true)
+    setCartDelayWhite(true);
 
     setTimeout(() => {
-      setCartDelayWhite(false)
+      setCartDelayWhite(false);
     }, 1500);
 
     setTimeout(() => {
-      setShowAlert(true)
+      setShowAlert(true);
     }, 1800);
 
     setTimeout(() => {
-      setShowAlert(false)
+      setShowAlert(false);
     }, 4000);
 
     dispatch(it === 1 ? addItems() : addItemsByNumber(it));
@@ -48,28 +50,48 @@ function ProductCard({ prodId, img_url, img_alt_text, product_name, product_pric
     dispatch(addProduct(newProduct));
   };
 
+  const addToWishlist = () => {
+    const product = {
+      id: prodId,
+      name: product_name,
+      price: product_price,
+      img_url: img_url,
+    };
+    dispatch(addWishlist(product));
+  };
+
+  const removeFromWishlist = () => {
+    dispatch(deleteWishlist(prodId));
+  };
+
   const handleFavoriteButtonAlert = () => {
-    setFavBtnSrc(favBtnSrc === "favorite-false.png" ? "favorite-true.png" : "favorite-false.png")
-    setCartDelayWhite(true)
+    if (favBtnSrc === "favorite-false.png") {
+      setFavBtnSrc("favorite-true.png");
+      addToWishlist();
+    } else {
+      setFavBtnSrc("favorite-false.png");
+      removeFromWishlist();
+    }
+    setCartDelayWhite(true);
     setTimeout(() => {
-      setCartDelayWhite(false)
+      setCartDelayWhite(false);
     }, 500);
     setTimeout(() => {
-      setShowAlertFavorite(true)
+      setShowAlertFavorite(true);
     }, 700);
     setTimeout(() => {
-      setShowAlertFavorite(false)
+      setShowAlertFavorite(false);
     }, 2500);
-  }
+  };
 
-  const dispatch = useDispatch();
   return (
     <>
-      {
-        cartDelayWhite && <>
-          <Loader /> <div className="bg-white opacity-75 w-full h-full fixed top-0 left-0 z-40"></div>
+      {cartDelayWhite && (
+        <>
+          <Loader />
+          <div className="bg-white opacity-75 w-full h-full fixed top-0 left-0 z-40"></div>
         </>
-      }
+      )}
       <div className={`${bg_color} hover:bg-slate-200 relative rounded-2xl m-auto px-2 shadow-xl product-card text-xs flex flex-col justify-evenly`}>
         <div>
           <div className="h-44 flex items-center justify-center">
@@ -91,7 +113,7 @@ function ProductCard({ prodId, img_url, img_alt_text, product_name, product_pric
         <button id="fav" onClick={handleFavoriteButtonAlert} className="absolute top-8 right-8">
           <img src={favBtnSrc} className="h-8 transition-all hover:ease-in" />
         </button>
-        {show &&
+        {show && (
           <div>
             <div className="flex justify-center gap-5 mb-4">
               <button className="border-none bg-slate-500 hover:bg-slate-400 flex justify-center items-center px-4 py-2 rounded-xl font-semibold text-slate-50 w-24">
@@ -122,13 +144,9 @@ function ProductCard({ prodId, img_url, img_alt_text, product_name, product_pric
               </button>
             </div>
           </div>
-        }
-        {showAlert && (
-          <MyAlertButton text="Items added to cart successfully" />
         )}
-        {showAlertFavorite &&
-          <MyAlertButton text="Item added to wishlist successfully" />
-        }
+        {showAlert && <MyAlertButton text="Items added to cart successfully" />}
+        {showAlertFavorite && <MyAlertButton text="Item added to wishlist successfully" />}
       </div>
     </>
   );
