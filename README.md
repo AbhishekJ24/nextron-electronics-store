@@ -58,19 +58,7 @@ To get a local copy up and running, follow these simple steps:
 
    ```npm run dev```
 
-5. Now navigate to the project server directory:
-   ```cd nextron-electronics-store/backend/```
-
-6. Install dependencies:
-   
-   ```npm i```
-
-7. Running the application:
-
-   ```node index.js```
-
-8. Access ```http://localhost:5173``` on your browser for the frontend
-9. Access ```http://localhost:3001``` on your browser for the backend
+5. Access ```http://localhost:5173``` on your browser for the frontend
 
 ## Usage
 Explore the wide range of electronics, use the search bar to find specific products, add items to your cart, and proceed to simulate a payment using the Razorpay's Payment Gateway. Enjoy the smooth and intuitive user experience designed with a focus on UX best practices.
